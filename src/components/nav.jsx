@@ -1,47 +1,88 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import logo from "/assets/logo.png";
 import phoneIcon from "/assets/phoneIcon.png";
 import closeIcon from "/assets/closeIcon.png";
 
 export default function Nav() {
+    const navRef = useRef(null);
     const [toggle, setToggle] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState("hero");
+
+    const getNavOffset = () => {
+        const navHeight = navRef.current?.offsetHeight ?? 60;
+        const extraGap = 20;
+
+        return navHeight + extraGap;
+    };
+
+    useEffect(() => {
+        if ("scrollRestoration" in window.history) {
+            window.history.scrollRestoration = "manual";
+        }
+
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 10);
 
             const sections = ["hero", "about", "work", "contact"];
-            const offset = 80; // Height of your fixed navigation bar
+            const offset = getNavOffset();
             let currentSection = "hero";
 
             sections.forEach((section) => {
                 const element = document.getElementById(section);
+
                 if (element) {
                     const top = element.getBoundingClientRect().top - offset;
+
                     if (top <= 0) {
                         currentSection = section;
                     }
                 }
             });
 
+            const isAtBottom =
+                window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5;
+
+            if (isAtBottom) {
+                currentSection = "contact";
+            }
+
             setActiveSection(currentSection);
         };
 
         window.addEventListener("scroll", handleScroll);
+        handleScroll();
+
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const scrollToSection = (sectionId) => {
         const section = document.getElementById(sectionId);
-        const offset = 80; // Height of your fixed navigation bar
-        const top = section?.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: "smooth" });
+
+        if (!section) {
+            return;
+        }
+
+        const getTargetTop = () => {
+            return section.getBoundingClientRect().top + window.scrollY - getNavOffset();
+        };
+
+        requestAnimationFrame(() => {
+            window.scrollTo({ top: getTargetTop(), behavior: "smooth" });
+
+            window.setTimeout(() => {
+                window.scrollTo({ top: getTargetTop(), behavior: "smooth" });
+            }, 350);
+        });
     };
 
     return (
         <nav
+            ref={navRef}
             className={`w-full flex items-center py-5 fixed top-0 z-20 text-white p-4 shadow-lg transition-all duration-300 ${
                 scrolled ? "bg-[#131313] backdrop-blur-md" : "bg-transparent"
             }`}
@@ -50,7 +91,7 @@ export default function Nav() {
                 {/* Logo */}
                 <button
                     className="flex items-center gap-2 cursor-pointer"
-                    onClick={() => scrollToSection("/")}
+                    onClick={() => scrollToSection("hero")}
                 >
                     <img src={logo} alt="Logo" className="w-12 h-12 object-contain" />
                     <h1 className="text-lg font-bold text-gray-400">

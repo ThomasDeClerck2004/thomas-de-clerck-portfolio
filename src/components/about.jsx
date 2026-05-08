@@ -8,7 +8,11 @@ export default function About() {
     const isInView = useInView(sectionRef, { once: true });
 
     return (
-        <section id="about" ref={sectionRef} className="flex justify-center items-center overflow-hidden">
+        <section 
+            id="about" 
+            ref={sectionRef} 
+            className="scroll-mt-40 sm:scroll-mt-36 lg:scroll-mt-32 flex justify-center items-center overflow-hidden"
+        >
             <div className="container mx-auto px-4 xl:px-20 pt-12">
                 <motion.div
                     variants={slideIn('left', 'tween', 0.2, 1)}

@@ -6,8 +6,8 @@ export default function IndexPage() {
             <Hero />
             <About />
             <Hobbies />
-            <Experience />
             <Skills />
+            <Experience />
             <Work />
             <Contact />
         </div>
