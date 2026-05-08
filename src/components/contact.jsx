@@ -60,13 +60,13 @@ export default function Contact() {
             ref={sectionRef}
             className="scroll-mt-40 sm:scroll-mt-36 lg:scroll-mt-32 flex justify-center items-center overflow-hidden"
         >
-            <div className="container mx-auto px-4 xl:px-20 py-12 flex flex-col-reverse xl:flex-row gap-10 rounded-2xl shadow-lg">
+            <div className="container mx-auto px-4 xl:px-20 py-12 flex flex-col-reverse 2xl:flex-row gap-10 rounded-2xl shadow-lg">
                 {/* Contact Form */}
                 <motion.div
                     variants={slideIn('left', 'tween', 0.2, 1)}
                     initial="hidden"
                     animate={isInView ? 'show' : 'hidden'}
-                    className="relative flex-[0.75] bg-[#1a1a1a] p-8 rounded-2xl"
+                    className="relative w-full max-w-3xl mx-auto 2xl:flex-[0.75] bg-[#1a1a1a] p-8 rounded-2xl"
                 >
                     <div className="rounded-2xl bg-[#1a1a1a]">
                         <p className="text-[#009b5f] font-medium tracking-wider uppercase pb-2 text-xs lg:text-lg">GET IN TOUCH</p>
@@ -128,7 +128,7 @@ export default function Contact() {
                     variants={slideIn('right', 'tween', 0.2, 1)}
                     initial="hidden"
                     animate={isInView ? 'show' : 'hidden'}
-                    className="flex-1 w-full max-w-[900px] max-h-[900px] aspect-square mx-auto"
+                    className="hidden 2xl:block flex-1 w-full max-w-[900px] max-h-[900px] aspect-square mx-auto"
                 >
                     <Canvas camera={{ position: [-4, 3, 6], fov: 45, near: 0.1, far: 200 }}>
                         {/* Ambient light for general illumination */}
