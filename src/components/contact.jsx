@@ -60,22 +60,22 @@ export default function Contact() {
             ref={sectionRef}
             className="scroll-mt-40 sm:scroll-mt-36 lg:scroll-mt-32 flex justify-center items-center overflow-hidden"
         >
-            <div className="container mx-auto px-4 xl:px-20 py-12 flex flex-col-reverse 2xl:flex-row gap-10 rounded-2xl shadow-lg">
+            <div className="container mx-auto px-4 lg:px-10 2xl:px-20 py-10 2xl:py-12 flex flex-col-reverse 2xl:flex-row gap-8 2xl:gap-10 rounded-2xl shadow-lg">
                 {/* Contact Form */}
                 <motion.div
                     variants={slideIn('left', 'tween', 0.2, 1)}
                     initial="hidden"
                     animate={isInView ? 'show' : 'hidden'}
-                    className="relative w-full max-w-3xl mx-auto 2xl:flex-[0.75] bg-[#1a1a1a] p-8 rounded-2xl"
+                    className="relative w-full max-w-3xl mx-auto 2xl:flex-[0.75] bg-[#1a1a1a] p-5 sm:p-8 rounded-2xl"
                 >
                     <div className="rounded-2xl bg-[#1a1a1a]">
-                        <p className="text-[#009b5f] font-medium tracking-wider uppercase pb-2 text-xs lg:text-lg">GET IN TOUCH</p>
-                        <h3 className="text-white font-bold text-3xl lg:text-6xl">Contact.</h3>
+                        <p className="text-[#009b5f] font-medium tracking-wider uppercase pb-2 text-xs lg:text-base 2xl:text-lg">GET IN TOUCH</p>
+                        <h3 className="text-white font-bold text-3xl lg:text-5xl 2xl:text-6xl">Contact.</h3>
     
                         <form
                             ref={formRef}
                             onSubmit={handleSubmit}
-                            className="mt-12 flex flex-col gap-8"
+                            className="mt-8 2xl:mt-12 flex flex-col gap-6 2xl:gap-8"
                         >
                             <label className="flex flex-col">
                                 <span className="text-white font-medium mb-4">Your Name</span>

@@ -13,20 +13,20 @@ export default function About() {
             ref={sectionRef} 
             className="scroll-mt-40 sm:scroll-mt-36 lg:scroll-mt-32 flex justify-center items-center overflow-hidden"
         >
-            <div className="container mx-auto px-4 xl:px-20 pt-12">
+            <div className="container mx-auto px-4 lg:px-10 2xl:px-20 pt-10 2xl:pt-12">
                 <motion.div
                     variants={slideIn('left', 'tween', 0.2, 1)}
                     initial="hidden"
                     animate={isInView ? 'show' : 'hidden'}
                 >
-                    <p className="text-[#009b5f] pb-2 sm:text-left text-center text-xs sm:text-lg font-medium tracking-wider uppercase">INTRODUCTION</p>
-                    <h3 className="text-white font-bold text-3xl sm:text-6xl sm:text-left text-center">About me.</h3>
+                    <p className="text-[#009b5f] pb-2 sm:text-left text-center text-xs lg:text-base 2xl:text-lg font-medium tracking-wider uppercase">INTRODUCTION</p>
+                    <h3 className="text-white font-bold text-3xl lg:text-5xl 2xl:text-6xl sm:text-left text-center">About me.</h3>
                 </motion.div>
 
-                <div className="flex flex-col lg:flex-row py-10 gap-10">
+                <div className="flex flex-col lg:flex-row py-8 2xl:py-10 gap-8 2xl:gap-10">
                     {/* Image Section */}
                     <motion.div
-                        className="hidden xl:block xl:rounded-md xl:w-[3000px] xl:h-[500px] xl:shadow-lg xl:shadow-primary"
+                        className="hidden 2xl:block 2xl:rounded-md 2xl:w-[3000px] 2xl:h-[500px] 2xl:shadow-lg 2xl:shadow-primary"
                         variants={slideIn('left', 'tween', 0.2, 1)}
                         initial="hidden"
                         animate={isInView ? 'show' : 'hidden'}
@@ -63,7 +63,7 @@ export default function About() {
                         <h2 className="text-gray-300 font-bold text-3xl lg:text-4xl sm:text-left text-center">
                             Hello, I'm <span className="text-[#009b5f]">Thomas</span>
                         </h2>
-                        <p className="text-gray-300 font-bold text-xl lg:text-2xl pt-4 sm:text-left text-center">
+                        <p className="text-gray-300 font-bold text-lg lg:text-xl 2xl:text-2xl pt-4 sm:text-left text-center">
                           I am a enthusiastic 20-year-old IT developer currently studying at Thomas More in Geel, Belgium. 
                           My love for technology and creative design drives me to build modern, responsive websites using the latest frameworks and tools. 
                           Ever since high school, I’ve been fascinated by how digital systems work and have constantly sought to expand my knowledge. 

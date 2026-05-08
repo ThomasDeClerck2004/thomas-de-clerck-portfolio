@@ -17,9 +17,9 @@ export default function Work() {
             ref={sectionRef}
             className="scroll-mt-40 sm:scroll-mt-36 lg:scroll-mt-32 flex justify-center items-center overflow-hidden"
         >
-            <div className="container mx-auto px-4 xl:px-20 pt-12 pb-24">
+            <div className="container mx-auto px-4 lg:px-10 2xl:px-20 pt-10 2xl:pt-12 pb-16 2xl:pb-24">
                 <motion.p
-                    className="text-[#009b5f] pb-2 sm:text-left text-center text-xs sm:text-lg font-medium tracking-wider uppercase"
+                    className="text-[#009b5f] pb-2 sm:text-left text-center text-xs lg:text-base 2xl:text-lg font-medium tracking-wider uppercase"
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
                     transition={{ duration: 0.5, delay: 0.3 }}
@@ -28,7 +28,7 @@ export default function Work() {
                     MY WORK
                 </motion.p>
                 <motion.h3
-                    className="text-white font-bold text-3xl sm:text-6xl sm:text-left text-center"
+                    className="text-white font-bold text-3xl lg:text-5xl 2xl:text-6xl sm:text-left text-center"
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
                     transition={{ duration: 0.5, delay: 0.5 }}

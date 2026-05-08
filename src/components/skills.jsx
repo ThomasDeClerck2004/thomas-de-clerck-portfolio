@@ -9,7 +9,7 @@ export default function Skills() {
 
     return (
         <section>
-            <div ref={sectionRef} className="container mx-auto px-4 xl:px-20 pt-12 pb-24">
+            <div ref={sectionRef} className="container mx-auto px-4 lg:px-10 2xl:px-20 pt-10 2xl:pt-12 pb-16 2xl:pb-24">
                 <motion.div className='flex flex-col'
                     variants={slideIn('left', 'tween', 0.2, 1)}
                     initial="hidden"

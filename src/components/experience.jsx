@@ -24,19 +24,19 @@ export default function Experience() {
 
     return (
         <section ref={sectionRef}>
-            <div className="container mx-auto px-4 xl:px-20 pt-24">
+            <div className="container mx-auto px-4 lg:px-10 2xl:px-20 pt-16 2xl:pt-24">
                 <motion.div
                     initial={{ y: 100, opacity: 0 }}
                     animate={isInView ? { y: 0, opacity: 1 } : {}}
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                 >
-                    <p className="text-[#009b5f] pb-2 text-center text-xs sm:text-lg font-medium tracking-wider uppercase">WHAT I HAVE DONE SO FAR</p>
-                    <h3 className="text-white font-bold text-3xl sm:text-6xl text-center">My Experiences.</h3>
+                    <p className="text-[#009b5f] pb-2 text-center text-xs lg:text-base 2xl:text-lg font-medium tracking-wider uppercase">WHAT I HAVE DONE SO FAR</p>
+                    <h3 className="text-white font-bold text-3xl lg:text-5xl 2xl:text-6xl text-center">My Experiences.</h3>
                 </motion.div>
                 
                 {/* Timeline */}
                 <motion.div
-                    className="mt-12 border-l-4 border-[#009b5f]"
+                    className="mt-8 2xl:mt-12 border-l-4 border-[#009b5f]"
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
                     variants={lineVariants}
