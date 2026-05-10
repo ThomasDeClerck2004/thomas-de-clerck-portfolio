@@ -23,32 +23,26 @@ export default function About() {
                     <h3 className="text-white font-bold text-3xl lg:text-5xl 2xl:text-6xl sm:text-left text-center">About me.</h3>
                 </motion.div>
 
-                <div className="flex flex-col lg:flex-row py-8 2xl:py-10 gap-8 2xl:gap-10">
+                <div className="flex flex-col lg:flex-row py-8 2xl:py-10 gap-8 2xl:gap-12 items-start">
                     {/* Image Section */}
                     <motion.div
-                        className="hidden 2xl:block 2xl:rounded-md 2xl:w-[3000px] 2xl:h-[500px] 2xl:shadow-lg 2xl:shadow-primary"
-                        variants={slideIn('left', 'tween', 0.2, 1)}
+                        className="hidden 2xl:block 2xl:w-[420px] 2xl:h-[520px] shrink-0"
+                        variants={slideIn("left", "tween", 0.2, 1)}
                         initial="hidden"
-                        animate={isInView ? 'show' : 'hidden'}
+                        animate={isInView ? "show" : "hidden"}
                     >
                         <Tilt
-                            className="shadow-lg border-4 border-[#009b5f] rounded-2xl"
-                            tiltMaxAngleX={15}
-                            tiltMaxAngleY={15}
+                            className="w-full h-full border-4 border-[#009b5f] rounded-2xl overflow-hidden shadow-lg shadow-[#009b5f]/30"
+                            tiltMaxAngleX={10}
+                            tiltMaxAngleY={10}
                             perspective={1000}
-                            scale={1.05}
+                            scale={1.03}
                             transitionSpeed={400}
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                boxShadow: '0 0 20px #009b5f', // Add green glow effect
-                                borderRadius: '1.2rem',
-                            }}
                         >
                             <img
                                 src="/assets/Thomas_De_Clerck_Portrait.jpg"
-                                alt="about"
-                                className="w-full h-full object-cover rounded-2xl"
+                                alt="Thomas De Clerck portrait"
+                                className="w-full h-full object-cover object-center rounded-xl"
                             />
                         </Tilt>
                     </motion.div>
@@ -64,10 +58,10 @@ export default function About() {
                             Hello, I'm <span className="text-[#009b5f]">Thomas</span>
                         </h2>
                         <p className="text-gray-300 font-bold text-lg lg:text-xl 2xl:text-2xl pt-4 sm:text-left text-center">
-                          I am an enthusiastic 21-year-old IT developer currently studying at Thomas More in Geel, Belgium. 
-                          My love for technology and creative design drives me to build modern, responsive websites using the latest frameworks and tools. 
-                          Ever since high school, I’ve been fascinated by how digital systems work and have constantly sought to expand my knowledge. 
-                          I’m highly motivated, eager to learn, and always open to discovering new technologies. With a strong eye for detail, I enjoy working with others and want to keep improving my skills by building useful and well-designed digital products.
+                            Since high school, I have had a strong interest in IT and am motivated to continuously learn and quickly master new tools and technologies. During my studies at Thomas More, I worked on various web development projects in a team, further developing my technical skills, collaboration, and planning abilities.
+                            <br />
+                            <br />
+                            Now that I am about to graduate, I am looking for a stable job that matches my interests and skills in web development.
                         </p>
 
                         <div className='flex flex-col mt-4 text-white'>
