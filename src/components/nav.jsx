@@ -83,8 +83,10 @@ export default function Nav() {
     return (
         <nav
             ref={navRef}
-            className={`w-full flex items-center py-5 fixed top-0 z-20 text-white p-4 shadow-lg transition-all duration-300 ${
-                scrolled ? "bg-[#131313] backdrop-blur-md" : "bg-transparent"
+            className={`w-full flex items-center py-5 fixed top-0 z-20 border-b text-white p-4 shadow-lg transition-colors duration-300 ${
+                scrolled
+                    ? "border-[#009b5f]/80 bg-[#131313] backdrop-blur-md"
+                    : "border-transparent bg-transparent"
             }`}
         >
             <div className="w-full flex justify-between items-center max-w-7xl mx-auto">

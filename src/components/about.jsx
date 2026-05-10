@@ -5,7 +5,10 @@ import { slideIn } from '../utils/animations';
 
 export default function About() {
     const sectionRef = useRef(null);
-    const isInView = useInView(sectionRef, { once: true });
+    const isInView = useInView(sectionRef, {
+        once: true,
+        amount: 0.05,
+    });
 
     return (
         <section 
