@@ -11,3 +11,4 @@ export { default as Project } from "./project";
 export { default as ProjectCard } from "./projectCard";
 export { default as Hobby } from "./hobby";
 export { default as Hobbies } from "./hobbies";
+export { default as Internship } from "./internship";

@@ -1,4 +1,4 @@
-import { Hero, About, Work, Contact, Experience, Skills, Hobbies } from "../components";
+import { Hero, About, Work, Contact, Experience, Skills, Hobbies, Internship } from "../components";
 
 export default function IndexPage() {
     return (
@@ -9,6 +9,7 @@ export default function IndexPage() {
             <Skills />
             <Experience />
             <Work />
+            <Internship />
             <Contact />
         </div>
     );
