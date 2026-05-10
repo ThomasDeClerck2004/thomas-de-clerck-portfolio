@@ -70,9 +70,9 @@ export default function Experience() {
                                 description: "Graduated with a technical secondary education in IT, covering programming, hardware, networking, and basic IT project work.",
                             },
                             {
-                                date: "Summer 2021 - 2024 (each Jul.)",
+                                date: "Summer 2021 - 2025 (each Jul.)",
                                 title: "Summer Job - Colruyt, Herentals",
-                                description: "Worked across four summer seasons in retail, focusing on customer service, stock management, and teamwork in a fast-paced environment.",
+                                description: "Worked across five summer seasons in retail, focusing on customer service, stock management, and teamwork in a fast-paced environment.",
                             },
                         ].map((item, index) => (
                             <motion.div
