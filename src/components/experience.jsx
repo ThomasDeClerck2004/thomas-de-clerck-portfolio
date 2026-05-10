@@ -50,13 +50,18 @@ export default function Experience() {
                                 description: "Currently studying applied computer science with a focus on software development, databases, networking, and modern IT tools.",
                             },
                             {
+                                date: "Feb. 2026 - May. 2026",
+                                title: "Internship - Axxes IT Consultancy",
+                                description: "Completed my bachelor internship at Axxes IT Consultancy as part of my bachelor degree.",
+                            },
+                            {
                                 date: "Sep. 2023",
                                 title: "Driver’s License Obtained - Category B",
                                 description: "Successfully earned driver’s license, enabling independent travel for work and study.",
                             },
                             {
                                 date: "Mar. 2023 - Apr. 2023",
-                                title: "Intern - NetConnect, Zandhoven",
+                                title: "Internship - NetConnect, Zandhoven",
                                 description: "Hands-on internship where I assisted in network configuration, troubleshooting, and technical support.",
                             },
                             {

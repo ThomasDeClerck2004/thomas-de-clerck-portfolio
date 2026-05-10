@@ -64,7 +64,7 @@ export default function About() {
                             Hello, I'm <span className="text-[#009b5f]">Thomas</span>
                         </h2>
                         <p className="text-gray-300 font-bold text-lg lg:text-xl 2xl:text-2xl pt-4 sm:text-left text-center">
-                          I am a enthusiastic 20-year-old IT developer currently studying at Thomas More in Geel, Belgium. 
+                          I am an enthusiastic 21-year-old IT developer currently studying at Thomas More in Geel, Belgium. 
                           My love for technology and creative design drives me to build modern, responsive websites using the latest frameworks and tools. 
                           Ever since high school, I’ve been fascinated by how digital systems work and have constantly sought to expand my knowledge. 
                           I’m highly motivated, eager to learn, and always open to discovering new technologies. With a strong eye for detail, I enjoy working with others and want to keep improving my skills by building useful and well-designed digital products.
