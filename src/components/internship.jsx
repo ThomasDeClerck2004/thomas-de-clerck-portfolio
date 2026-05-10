@@ -42,18 +42,41 @@ export default function Internship() {
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
                     variants={fadeUp}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    transition={{ duration: 1.1, ease: "easeOut" }}
+                    className="flex flex-col md:flex-row md:items-center md:justify-between gap-6"
                 >
-                    <p className="text-[#009b5f] pb-2 sm:text-left text-center text-xs lg:text-base 2xl:text-lg font-medium tracking-wider uppercase">
-                        BACHELOR INTERNSHIP
-                    </p>
+                    <div>
+                        <p className="text-[#009b5f] pb-2 sm:text-left text-center text-xs lg:text-base 2xl:text-lg font-medium tracking-wider uppercase">
+                            BACHELOR INTERNSHIP
+                        </p>
 
-                    <h3 className="text-white font-bold text-3xl lg:text-5xl 2xl:text-6xl sm:text-left text-center">
-                        Internship.
-                    </h3>
+                        <h3 className="text-white font-bold text-3xl lg:text-5xl 2xl:text-6xl sm:text-left text-center">
+                            Internship.
+                        </h3>
+                    </div>
+
+                    <div className="hidden sm:flex justify-center md:justify-end">
+                        <div className="flex items-center gap-4 pl-4 py-3">
+                            <div>
+                                <p className="text-gray-400 text-xs uppercase tracking-wider">
+                                    Internship at
+                                </p>
+                                <p className="text-white font-semibold text-lg leading-tight">
+                                    Axxes
+                                </p>
+                            </div>
+
+                            <img
+                                src="/assets/axxes_logo.jpg"
+                                alt="Axxes logo"
+                                className="w-28 h-26 object-cover rounded-xl border border-[#2a2a2a]"
+                            />
+                        </div>
+                    </div>
                 </motion.div>
 
-                <div className="mt-10 grid grid-cols-1 xl:grid-cols-[1.15fr_0.85fr] gap-6 2xl:gap-8">
+                <div className="mt-6 grid grid-cols-1 xl:grid-cols-[1.15fr_0.85fr] gap-6 2xl:gap-8">
+
                     <motion.article
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
@@ -138,7 +161,7 @@ export default function Internship() {
                     className="mt-10"
                 >
                     <p className="text-[#009b5f] pb-2 text-xs lg:text-base 2xl:text-lg font-medium tracking-wider uppercase">
-                        Mandatory Documents
+                        Documents
                     </p>
 
                     <h4 className="text-white font-bold text-2xl lg:text-4xl mb-6">
