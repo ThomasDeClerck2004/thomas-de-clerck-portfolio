@@ -3,21 +3,18 @@ import { motion, useInView } from "framer-motion";
 
 const documents = [
     {
-        title: "Project Plan",
-        description:
-            "The planning document that described the internship assignment, scope, objectives, approach, timing, and expected deliverables.",
-        file: "/assets/internship-project-plan.pdf",
-    },
-    {
-        title: "Realization Document",
-        description:
-            "The full realization document in which I described the internship assignment using the 5W1H approach.",
+        title: "Realisatiedocument",
+        description: "De volledige technische en functionele uitwerking.",
         file: "/assets/internship-realization-document.pdf",
     },
     {
-        title: "Reflection",
-        description:
-            "A reflection on my learning process, professional growth, challenges, and personal development during the internship.",
+        title: "Projectplan",
+        description: "Initiële aanpak, doelstellingen en planning.",
+        file: "/assets/internship-project-plan.pdf",
+    },
+    {
+        title: "Reflectieverslag",
+        description: "Persoonlijke reflectie op het leerproces.",
         file: "/assets/internship-reflection.pdf",
     },
 ];
@@ -76,7 +73,6 @@ export default function Internship() {
                 </motion.div>
 
                 <div className="mt-6 grid grid-cols-1 xl:grid-cols-[1.15fr_0.85fr] gap-6 2xl:gap-8">
-
                     <motion.article
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
@@ -158,41 +154,81 @@ export default function Internship() {
                     animate={isInView ? "visible" : "hidden"}
                     variants={fadeUp}
                     transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
-                    className="mt-10"
+                    className="mt-10 grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] gap-8 lg:gap-10 items-center"
                 >
-                    <p className="text-[#009b5f] pb-2 text-xs lg:text-base 2xl:text-lg font-medium tracking-wider uppercase">
-                        Documents
-                    </p>
+                    <div className="w-full overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#111] shadow-lg shadow-black/30">
+                        <img
+                            src="/public/assets/brews.gif"
+                            alt="Internship project preview"
+                            className="w-full h-auto max-h-[520px] object-cover object-top"
+                        />
+                    </div>
 
-                    <h4 className="text-white font-bold text-2xl lg:text-4xl mb-6">
-                        Downloads.
-                    </h4>
+                    <div>
+                        <p className="text-[#009b5f] pb-2 text-xs lg:text-base 2xl:text-lg font-medium tracking-wider uppercase">
+                            Documents
+                        </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {documents.map((document) => (
-                            <article
-                                key={document.title}
-                                className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-6 min-h-[260px] flex flex-col justify-between hover:border-[#009b5f] transition duration-300"
-                            >
-                                <div>
-                                    <h5 className="text-white text-xl font-bold mb-3">
-                                        {document.title}
-                                    </h5>
+                        <h4 className="text-white font-bold text-2xl lg:text-4xl mb-3">
+                            Documentation.
+                        </h4>
 
-                                    <p className="text-gray-400 text-sm leading-relaxed">
-                                        {document.description}
-                                    </p>
-                                </div>
+                        <p className="text-gray-400 text-sm lg:text-base leading-relaxed mb-6">
+                            A deep insight into the realisation and reflection of my internship.
+                        </p>
 
+                        <div className="space-y-3 sm:space-y-4">
+                            {documents.map((document) => (
                                 <a
+                                    key={document.title}
                                     href={document.file}
                                     download
-                                    className="mt-6 bg-[#009b5f] hover:bg-[#01b872] transition duration-300 ease-in-out py-3 px-5 text-white font-bold shadow-md shadow-primary rounded-xl text-center"
+                                    className="group flex items-center gap-4 rounded-xl border border-[#2a2a2a] bg-[#1a1a1a] px-4 py-4 sm:px-5 sm:py-5 hover:border-[#009b5f] transition duration-300"
                                 >
-                                    Download PDF
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        className="w-7 h-7 shrink-0 text-gray-400 group-hover:text-[#009b5f] transition"
+                                    >
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                        <path d="M14 2v6h6" />
+                                        <path d="M16 13H8" />
+                                        <path d="M16 17H8" />
+                                        <path d="M10 9H8" />
+                                    </svg>
+
+                                    <div className="min-w-0 flex-1">
+                                        <h5 className="text-white text-sm sm:text-base font-bold">
+                                            {document.title}
+                                        </h5>
+
+                                        <p className="text-gray-400 text-sm leading-relaxed mt-1">
+                                            {document.description}
+                                        </p>
+                                    </div>
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        className="w-6 h-6 shrink-0 text-gray-500 group-hover:text-[#009b5f] transition"
+                                    >
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <path d="M7 10l5 5 5-5" />
+                                        <path d="M12 15V3" />
+                                    </svg>
                                 </a>
-                            </article>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </motion.div>
             </div>
