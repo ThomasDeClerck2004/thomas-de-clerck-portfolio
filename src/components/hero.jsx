@@ -56,6 +56,30 @@ export default function Hero() {
         >
             <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:56px_56px]" />
 
+            <motion.div
+                className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,#00ad6a_1px,transparent_1px),linear-gradient(to_bottom,#00ad6a_1px,transparent_1px)] [background-size:56px_56px]"
+                style={{
+                    WebkitMaskImage:
+                        "radial-gradient(ellipse 34% 100% at 50% 50%, black 0%, black 28%, rgba(0,0,0,0.55) 45%, transparent 72%)",
+                    maskImage:
+                        "radial-gradient(ellipse 34% 100% at 50% 50%, black 0%, black 28%, rgba(0,0,0,0.55) 45%, transparent 72%)",
+                    WebkitMaskSize: "260% 100%",
+                    maskSize: "260% 100%",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                }}
+                animate={{
+                    WebkitMaskPosition: ["145% 0%", "-45% 0%"],
+                    maskPosition: ["145% 0%", "-45% 0%"],
+                }}
+                transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    repeatDelay: 5.5,
+                    ease: [0.65, 0, 0.35, 1],
+                }}
+            />
+
             <div
                 className="pointer-events-none absolute inset-0 opacity-[0.38] transition-opacity duration-300 [background-image:linear-gradient(to_right,#00ad6a_1px,transparent_1px),linear-gradient(to_bottom,#00ad6a_1px,transparent_1px)] [background-size:56px_56px]"
                 style={{
