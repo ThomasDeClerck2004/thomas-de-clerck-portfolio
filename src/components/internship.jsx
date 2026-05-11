@@ -158,7 +158,7 @@ export default function Internship() {
                 >
                     <div className="w-full overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#111] shadow-lg shadow-black/30">
                         <img
-                            src="/public/assets/brews.gif"
+                            src="/assets/Over21.GIF"
                             alt="Internship project preview"
                             className="w-full h-auto max-h-[520px] object-cover object-top"
                         />

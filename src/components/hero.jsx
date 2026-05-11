@@ -57,10 +57,10 @@ export default function Hero() {
             <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:56px_56px]" />
 
             <div
-                className="pointer-events-none absolute inset-0 opacity-[0.22] transition-opacity duration-300 [background-image:linear-gradient(to_right,#009b5f_1px,transparent_1px),linear-gradient(to_bottom,#009b5f_1px,transparent_1px)] [background-size:56px_56px]"
+                className="pointer-events-none absolute inset-0 opacity-[0.38] transition-opacity duration-300 [background-image:linear-gradient(to_right,#00ad6a_1px,transparent_1px),linear-gradient(to_bottom,#00ad6a_1px,transparent_1px)] [background-size:56px_56px]"
                 style={{
-                    WebkitMaskImage: `radial-gradient(circle 150px at ${cursorPosition.x}px ${cursorPosition.y}px, black 0%, black 35%, transparent 75%)`,
-                    maskImage: `radial-gradient(circle 150px at ${cursorPosition.x}px ${cursorPosition.y}px, black 0%, black 35%, transparent 75%)`,
+                    WebkitMaskImage: `radial-gradient(circle 115px at ${cursorPosition.x}px ${cursorPosition.y}px, black 0%, black 38%, transparent 72%)`,
+                    maskImage: `radial-gradient(circle 115px at ${cursorPosition.x}px ${cursorPosition.y}px, black 0%, black 38%, transparent 72%)`,
                 }}
             />
 
