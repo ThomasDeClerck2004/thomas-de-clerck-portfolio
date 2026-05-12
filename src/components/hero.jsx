@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { HeroFireworks } from "./heroFireworks";
 
 export default function Hero() {
     const ref = useRef(null);
     const cvMenuRef = useRef(null);
+    const cvButtonRef = useRef(null);
+    const fireworksRef = useRef(null);
     const isInView = useInView(ref, { once: true });
     const [showCvMenu, setShowCvMenu] = useState(false);
     const [cursorPosition, setCursorPosition] = useState({ x: -9999, y: -9999 });
@@ -30,6 +33,23 @@ export default function Hero() {
         document.getElementById("contact")?.scrollIntoView({
             behavior: "smooth",
             block: "start",
+        });
+    };
+
+    const handleCvClick = () => {
+        setShowCvMenu((value) => {
+            const nextValue = !value;
+
+            if (nextValue && cvButtonRef.current) {
+                const rect = cvButtonRef.current.getBoundingClientRect();
+
+                fireworksRef.current?.launchAt(
+                    rect.left + rect.width / 2,
+                    rect.top + rect.height / 2
+                );
+            }
+
+            return nextValue;
         });
     };
 
@@ -75,7 +95,7 @@ export default function Hero() {
                 transition={{
                     duration: 6,
                     repeat: Infinity,
-                    repeatDelay: 5.5,
+                    repeatDelay: 0.001,
                     ease: [0.65, 0, 0.35, 1],
                 }}
             />
@@ -90,7 +110,7 @@ export default function Hero() {
 
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0d0d0d] to-transparent" />
 
-            <div className="relative z-10 max-w-4xl">
+            <div className="relative z-30 max-w-4xl">
                 <motion.p
                     className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[#009b5f] sm:text-sm"
                     initial={{ y: 40, opacity: 0 }}
@@ -126,15 +146,16 @@ export default function Hero() {
                 >
                     <div ref={cvMenuRef} className="relative">
                         <button
+                            ref={cvButtonRef}
                             type="button"
-                            onClick={() => setShowCvMenu((value) => !value)}
+                            onClick={handleCvClick}
                             className="min-w-44 rounded-md bg-[#009b5f] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#00b873] sm:text-base"
                         >
                             Download CV
                         </button>
 
                         {showCvMenu && (
-                            <div className="absolute left-1/2 top-full mt-3 w-44 -translate-x-1/2 overflow-hidden rounded-md border border-white/10 bg-[#131313] shadow-xl">
+                            <div className="absolute left-1/2 top-full z-40 mt-3 w-44 -translate-x-1/2 overflow-hidden rounded-md border border-white/10 bg-[#131313] shadow-xl">
                                 <a
                                     href="/assets/CV_Thomas_De_Clerck_2025_NL.pdf"
                                     download
@@ -162,6 +183,8 @@ export default function Hero() {
                     </button>
                 </motion.div>
             </div>
+
+            <HeroFireworks ref={fireworksRef} />
         </section>
     );
 }
