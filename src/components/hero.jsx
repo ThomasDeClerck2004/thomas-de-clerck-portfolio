@@ -149,7 +149,7 @@ export default function Hero() {
                             ref={cvButtonRef}
                             type="button"
                             onClick={handleCvClick}
-                            className="min-w-44 rounded-md bg-[#009b5f] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#00b873] sm:text-base"
+                            className="min-w-44 rounded-md bg-[#009b5f] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#00b873] sm:text-base cursor-pointer"
                         >
                             Download CV
                         </button>
@@ -177,7 +177,7 @@ export default function Hero() {
                     <button
                         type="button"
                         onClick={scrollToContact}
-                        className="min-w-44 rounded-md border border-gray-600 bg-[#131313]/70 px-6 py-3 text-sm font-semibold text-gray-200 backdrop-blur-sm transition hover:border-[#009b5f] hover:text-white sm:text-base"
+                        className="min-w-44 rounded-md border border-gray-600 bg-[#131313]/70 px-6 py-3 text-sm font-semibold text-gray-200 backdrop-blur-sm transition hover:border-[#009b5f] hover:text-white sm:text-base cursor-pointer"
                     >
                         Contact Me
                     </button>
