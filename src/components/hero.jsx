@@ -29,8 +29,40 @@ function shouldEnableHeroEffects() {
         !prefersReducedMotion &&
         !slowConnection &&
         !(smallScreen && (lowMemory || lowCpu)) &&
-        !(lowMemory && lowCpu)
+        !lowMemory &&
+        !lowCpu
     );
+}
+
+function testInitialPerformance() {
+    return new Promise((resolve) => {
+        let frames = 0;
+        let slowFrames = 0;
+        let lastFrame = performance.now();
+        const startTime = performance.now();
+
+        const check = (now) => {
+            const frameTime = now - lastFrame;
+            lastFrame = now;
+            frames += 1;
+
+            if (frameTime > 34) {
+                slowFrames += 1;
+            }
+
+            const testedLongEnough = now - startTime > 700;
+            const testedEnoughFrames = frames >= 20;
+
+            if (testedLongEnough || testedEnoughFrames) {
+                resolve(slowFrames <= 2);
+                return;
+            }
+
+            requestAnimationFrame(check);
+        };
+
+        requestAnimationFrame(check);
+    });
 }
 
 function watchForLag(onLagDetected) {
@@ -53,7 +85,7 @@ function watchForLag(onLagDetected) {
             slowFrames = Math.max(0, slowFrames - 1);
         }
 
-        if (slowFrames >= 18) {
+        if (slowFrames >= 5) {
             onLagDetected();
             stopped = true;
             return;
@@ -80,12 +112,42 @@ export default function Hero() {
     const fireworksRef = useRef(null);
     const isInView = useInView(ref, { once: true });
     const [showCvMenu, setShowCvMenu] = useState(false);
-    const [effectsEnabled, setEffectsEnabled] = useState(() => shouldEnableHeroEffects());
+    const [effectsEnabled, setEffectsEnabled] = useState(false);
     const [cursorPosition, setCursorPosition] = useState({ x: -9999, y: -9999 });
 
     useEffect(() => {
-        const updateEffects = () => {
-            setEffectsEnabled(shouldEnableHeroEffects());
+        let cancelled = false;
+        let stopWatchingLag = null;
+
+        const stopCurrentLagWatcher = () => {
+            if (stopWatchingLag) {
+                stopWatchingLag();
+                stopWatchingLag = null;
+            }
+        };
+
+        const updateEffects = async () => {
+            stopCurrentLagWatcher();
+
+            if (!shouldEnableHeroEffects()) {
+                setEffectsEnabled(false);
+                return;
+            }
+
+            const deviceFeelsSmooth = await testInitialPerformance();
+
+            if (cancelled) {
+                return;
+            }
+
+            setEffectsEnabled(deviceFeelsSmooth);
+
+            if (deviceFeelsSmooth) {
+                stopWatchingLag = watchForLag(() => {
+                    setEffectsEnabled(false);
+                    stopCurrentLagWatcher();
+                });
+            }
         };
 
         const reducedMotionQuery = window.matchMedia(
@@ -97,14 +159,13 @@ export default function Hero() {
         window.addEventListener("resize", updateEffects);
         reducedMotionQuery.addEventListener("change", updateEffects);
 
-        const stopWatchingLag = watchForLag(() => {
-            setEffectsEnabled(false);
-        });
-
         return () => {
+            cancelled = true;
+
             window.removeEventListener("resize", updateEffects);
             reducedMotionQuery.removeEventListener("change", updateEffects);
-            stopWatchingLag();
+
+            stopCurrentLagWatcher();
         };
     }, []);
 
