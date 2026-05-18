@@ -9,7 +9,10 @@ import emailjs from 'emailjs-com'; // Import EmailJS
 export default function Contact() {
     const formRef = useRef();
     const sectionRef = useRef(null);
-    const isInView = useInView(sectionRef, { once: true });
+    const isInView = useInView(sectionRef, {
+        once: true,
+        amount: 0.1,
+    });
 
     const [form, setForm] = useState({
         name: '',
