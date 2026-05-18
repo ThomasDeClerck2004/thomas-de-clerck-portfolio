@@ -3,18 +3,18 @@ import { motion, useInView } from "framer-motion";
 
 const documents = [
     {
-        title: "Realisatiedocument",
-        description: "De volledige technische en functionele uitwerking.",
-        file: "/assets/internship-realization-document.pdf",
-    },
-    {
-        title: "Projectplan",
-        description: "Initiële aanpak, doelstellingen en planning.",
+        title: "Project plan",
+        description: "Initial approach, objectives, and schedule.",
         file: "/assets/internship-project-plan.pdf",
     },
     {
-        title: "Reflectieverslag",
-        description: "Persoonlijke reflectie op het leerproces.",
+        title: "Realisation document",
+        description: "The complete technical and functional delivery.",
+        file: "/assets/internship-realization-document.pdf",
+    },
+    {
+        title: "Reflection document",
+        description: "Personal reflection on the learning process.",
         file: "/assets/internship-reflection.pdf",
     },
 ];

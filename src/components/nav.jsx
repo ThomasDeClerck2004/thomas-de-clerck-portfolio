@@ -122,7 +122,7 @@ export default function Nav() {
                             } hover:text-gray-300 cursor-pointer`}
                             onClick={() => scrollToSection("work")}
                         >
-                            Achievements
+                            Projects
                         </button>
                     </li>
 
@@ -192,7 +192,7 @@ export default function Nav() {
                                         setToggle(false);
                                     }}
                                 >
-                                    Achievements
+                                    Projects
                                 </button>
                             </li>
 
