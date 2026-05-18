@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Hero } from "../components";
+import { Hero, Contact } from "../components";
 
 const About = lazy(() => import("../components/about"));
 const Hobbies = lazy(() => import("../components/hobbies"));
@@ -7,7 +7,6 @@ const Skills = lazy(() => import("../components/skills"));
 const Experience = lazy(() => import("../components/experience"));
 const Work = lazy(() => import("../components/work"));
 const Internship = lazy(() => import("../components/internship"));
-const Contact = lazy(() => import("../components/contact"));
 
 export default function IndexPage() {
     return (
@@ -20,9 +19,10 @@ export default function IndexPage() {
                 <Skills />
                 <Experience />
                 <Work />
-                <Internship />                
-                <Contact /> 
+                <Internship />                    
             </Suspense>
+
+            <Contact /> 
         </div>
     );
 }

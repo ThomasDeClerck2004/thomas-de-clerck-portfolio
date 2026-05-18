@@ -1,20 +1,22 @@
-import { Suspense, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import Earth from '../components/earth.jsx';
 import { slideIn } from '../utils/animations';
-import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com'; // Import EmailJS
 
 export default function Contact() {
     const formRef = useRef();
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { once: true });
 
     const [form, setForm] = useState({
         name: '',
         email: '',
         message: ''
     });
-
+    
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
@@ -26,22 +28,23 @@ export default function Contact() {
         e.preventDefault();
         setLoading(true);
 
+        // Use EmailJS to send the form data
         emailjs
             .send(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                import.meta.env.VITE_EMAILJS_SERVICE_ID, // Replace with your EmailJS service ID
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // Replace with your EmailJS template ID
                 {
                     name: form.name,
                     email: form.email,
                     message: form.message,
                 },
-                import.meta.env.VITE_EMAILJS_USER_ID
+                import.meta.env.VITE_EMAILJS_USER_ID // Replace with your EmailJS user ID
             )
             .then(
                 () => {
                     setLoading(false);
                     alert('Message sent successfully!');
-                    setForm({ name: '', email: '', message: '' });
+                    setForm({ name: '', email: '', message: '' }); // Reset form
                 },
                 (error) => {
                     setLoading(false);
@@ -54,20 +57,21 @@ export default function Contact() {
     return (
         <section
             id="contact"
+            ref={sectionRef}
             className="scroll-mt-40 sm:scroll-mt-36 lg:scroll-mt-32 flex justify-center items-center overflow-hidden"
         >
             <div className="container mx-auto px-4 lg:px-10 2xl:px-20 py-10 2xl:py-12 flex flex-col-reverse 2xl:flex-row gap-8 2xl:gap-10 rounded-2xl shadow-lg">
+                {/* Contact Form */}
                 <motion.div
                     variants={slideIn('left', 'tween', 0.2, 1)}
                     initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.2 }}
+                    animate={isInView ? 'show' : 'hidden'}
                     className="relative w-full max-w-3xl mx-auto 2xl:flex-[0.75] bg-[#1a1a1a] p-5 sm:p-8 rounded-2xl"
                 >
                     <div className="rounded-2xl bg-[#1a1a1a]">
                         <p className="text-[#009b5f] font-medium tracking-wider uppercase pb-2 text-xs lg:text-base 2xl:text-lg">GET IN TOUCH</p>
                         <h3 className="text-white font-bold text-3xl lg:text-5xl 2xl:text-6xl">Contact.</h3>
-
+    
                         <form
                             ref={formRef}
                             onSubmit={handleSubmit}
@@ -118,31 +122,39 @@ export default function Contact() {
                         </form>
                     </div>
                 </motion.div>
-
+    
+                {/* 3D Earth */}
                 <motion.div
                     variants={slideIn('right', 'tween', 0.2, 1)}
                     initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.2 }}
+                    animate={isInView ? 'show' : 'hidden'}
                     className="hidden 2xl:block flex-1 w-full max-w-[900px] max-h-[900px] aspect-square mx-auto"
                 >
-                    <Canvas
-                        dpr={[1, 1.5]}
-                        camera={{ position: [-4, 3, 6], fov: 45, near: 0.1, far: 200 }}
-                    >
-                        <ambientLight intensity={3.5} />
+                    <Canvas camera={{ position: [-4, 3, 6], fov: 45, near: 0.1, far: 200 }}>
+                        {/* Ambient light for general illumination */}
+                        <ambientLight intensity={4.5} />
 
+                        {/* Directional light to simulate sunlight */}
                         <directionalLight
-                            position={[10, 5, 10]}
-                            intensity={2.5}
+                            position={[10, 5, 10]} // Position of the "Sun"
+                            intensity={3} // Increase brightness
+                            castShadow // Enable shadows
+                            shadow-mapSize-width={2048} // Higher shadow quality
+                            shadow-mapSize-height={2048}
+                            shadow-camera-far={50}
+                            shadow-camera-left={-10}
+                            shadow-camera-right={10}
+                            shadow-camera-top={10}
+                            shadow-camera-bottom={-10}
                         />
 
-                        <pointLight position={[10, 10, 10]} intensity={1.5} />
+                        {/* Point light for additional brightness */}
+                        <pointLight position={[10, 10, 10]} intensity={2} />
 
-                        <Suspense fallback={null}>
-                            <Earth />
-                        </Suspense>
+                        {/* Earth model */}
+                        <Earth />
 
+                        {/* Orbit controls for interaction */}
                         <OrbitControls
                             enableZoom={false}
                             enablePan={false}
