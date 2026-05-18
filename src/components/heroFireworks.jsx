@@ -3,13 +3,18 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 
 const COLORS = ["#00ad6a", "#64ffda", "#ffffff", "#8affc1"];
+const MAX_PIXEL_RATIO = 1.5;
+const MAX_ROCKETS = 3;
+const MAX_PARTICLES = 120;
+const LAUNCH_COOLDOWN = 200;
 
-export const HeroFireworks = forwardRef(function HeroFireworks(_, ref) {
+export const HeroFireworks = forwardRef(function HeroFireworks({ enabled = true }, ref) {
     const canvasRef = useRef(null);
     const rocketsRef = useRef([]);
     const particlesRef = useRef([]);
     const animationRef = useRef(null);
     const launchAtRef = useRef(null);
+    const lastLaunchRef = useRef(0);
 
     useImperativeHandle(ref, () => ({
         launchAt(x, y) {
@@ -18,63 +23,72 @@ export const HeroFireworks = forwardRef(function HeroFireworks(_, ref) {
     }));
 
     useEffect(() => {
+        if (!enabled) {
+            rocketsRef.current = [];
+            particlesRef.current = [];
+            launchAtRef.current = null;
+            return;
+        }
+
         const canvas = canvasRef.current;
         if (!canvas) return;
 
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
+        let isVisible = document.visibilityState === "visible";
+
+        const stopAnimation = () => {
+            if (animationRef.current) {
+                cancelAnimationFrame(animationRef.current);
+                animationRef.current = null;
+            }
+        };
+
         const resize = () => {
             const rect = canvas.parentElement?.getBoundingClientRect();
             if (!rect) return;
 
-            canvas.width = rect.width * window.devicePixelRatio;
-            canvas.height = rect.height * window.devicePixelRatio;
+            const pixelRatio = Math.min(window.devicePixelRatio || 1, MAX_PIXEL_RATIO);
+
+            canvas.width = rect.width * pixelRatio;
+            canvas.height = rect.height * pixelRatio;
             canvas.style.width = `${rect.width}px`;
             canvas.style.height = `${rect.height}px`;
 
-            ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+            ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
         };
 
         const explode = (x, y, color) => {
-            const amount = 42;
+            const amount = window.innerWidth < 768 ? 24 : 36;
 
             for (let i = 0; i < amount; i++) {
                 const angle = (Math.PI * 2 * i) / amount;
-                const speed = 1.4 + Math.random() * 3.2;
+                const speed = 1.2 + Math.random() * 2.8;
 
                 particlesRef.current.push({
                     x,
                     y,
                     vx: Math.cos(angle) * speed,
                     vy: Math.sin(angle) * speed,
-                    life: 70,
-                    maxLife: 70,
+                    life: 56,
+                    maxLife: 56,
                     color,
                 });
             }
-        };
 
-        const launchAt = (x, y) => {
-            rocketsRef.current.push({
-                x,
-                y,
-                targetY: Math.max(48, y - (140 + Math.random() * 180)),
-                vx: (Math.random() - 0.5) * 0.8,
-                vy: -5.5 - Math.random() * 1.5,
-                color: COLORS[Math.floor(Math.random() * COLORS.length)],
-            });
-        };
-
-        launchAtRef.current = launchAt;
-
-        const launch = (event) => {
-            const rect = canvas.getBoundingClientRect();
-
-            launchAt(event.clientX - rect.left, event.clientY - rect.top);
+            if (particlesRef.current.length > MAX_PARTICLES) {
+                particlesRef.current = particlesRef.current.slice(-MAX_PARTICLES);
+            }
         };
 
         const draw = () => {
+            animationRef.current = null;
+
+            if (!isVisible) {
+                return;
+            }
+
             const width = canvas.clientWidth;
             const height = canvas.clientHeight;
 
@@ -90,12 +104,12 @@ export const HeroFireworks = forwardRef(function HeroFireworks(_, ref) {
                 ctx.arc(rocket.x, rocket.y, 2.2, 0, Math.PI * 2);
                 ctx.fillStyle = rocket.color;
                 ctx.shadowColor = rocket.color;
-                ctx.shadowBlur = 14;
+                ctx.shadowBlur = 10;
                 ctx.fill();
 
                 ctx.beginPath();
                 ctx.moveTo(rocket.x, rocket.y + 8);
-                ctx.lineTo(rocket.x, rocket.y + 24);
+                ctx.lineTo(rocket.x, rocket.y + 22);
                 ctx.strokeStyle = rocket.color;
                 ctx.globalAlpha = 0.45;
                 ctx.lineWidth = 1.2;
@@ -124,10 +138,10 @@ export const HeroFireworks = forwardRef(function HeroFireworks(_, ref) {
 
                 ctx.globalAlpha = alpha;
                 ctx.beginPath();
-                ctx.arc(particle.x, particle.y, 1.7, 0, Math.PI * 2);
+                ctx.arc(particle.x, particle.y, 1.6, 0, Math.PI * 2);
                 ctx.fillStyle = particle.color;
                 ctx.shadowColor = particle.color;
-                ctx.shadowBlur = 12;
+                ctx.shadowBlur = 8;
                 ctx.fill();
 
                 return particle.life > 0;
@@ -136,24 +150,84 @@ export const HeroFireworks = forwardRef(function HeroFireworks(_, ref) {
             ctx.globalAlpha = 1;
             ctx.globalCompositeOperation = "source-over";
 
-            animationRef.current = requestAnimationFrame(draw);
+            if (rocketsRef.current.length > 0 || particlesRef.current.length > 0) {
+                animationRef.current = requestAnimationFrame(draw);
+            } else {
+                ctx.clearRect(0, 0, width, height);
+            }
+        };
+
+        const startAnimation = () => {
+            if (!animationRef.current && isVisible) {
+                animationRef.current = requestAnimationFrame(draw);
+            }
+        };
+
+        const launchAt = (x, y) => {
+            const now = performance.now();
+
+            if (now - lastLaunchRef.current < LAUNCH_COOLDOWN) {
+                return;
+            }
+
+            if (rocketsRef.current.length >= MAX_ROCKETS) {
+                return;
+            }
+
+            lastLaunchRef.current = now;
+
+            rocketsRef.current.push({
+                x,
+                y,
+                targetY: Math.max(48, y - (120 + Math.random() * 150)),
+                vx: (Math.random() - 0.5) * 0.8,
+                vy: -5.2 - Math.random() * 1.2,
+                color: COLORS[Math.floor(Math.random() * COLORS.length)],
+            });
+
+            startAnimation();
+        };
+
+        const launch = (event) => {
+            const rect = canvas.getBoundingClientRect();
+
+            launchAt(event.clientX - rect.left, event.clientY - rect.top);
+        };
+
+        const handleVisibilityChange = () => {
+            isVisible = document.visibilityState === "visible";
+
+            if (isVisible) {
+                startAnimation();
+            } else {
+                stopAnimation();
+            }
         };
 
         resize();
+
+        launchAtRef.current = launchAt;
+
         window.addEventListener("resize", resize);
+        document.addEventListener("visibilitychange", handleVisibilityChange);
         canvas.addEventListener("pointerdown", launch);
-        animationRef.current = requestAnimationFrame(draw);
 
         return () => {
             window.removeEventListener("resize", resize);
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
             canvas.removeEventListener("pointerdown", launch);
+
+            rocketsRef.current = [];
+            particlesRef.current = [];
             launchAtRef.current = null;
 
-            if (animationRef.current) {
-                cancelAnimationFrame(animationRef.current);
-            }
+            stopAnimation();
         };
-    }, []);
+    }, [enabled]);
+
+    if (!enabled) {
+        return null;
+    }
 
     return (
         <canvas

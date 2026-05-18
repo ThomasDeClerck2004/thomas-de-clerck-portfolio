@@ -2,6 +2,77 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { HeroFireworks } from "./heroFireworks";
 
+function shouldEnableHeroEffects() {
+    if (typeof window === "undefined") {
+        return false;
+    }
+
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const smallScreen = window.matchMedia("(max-width: 768px)").matches;
+
+    const lowMemory =
+        "deviceMemory" in navigator && navigator.deviceMemory <= 4;
+
+    const lowCpu =
+        "hardwareConcurrency" in navigator &&
+        navigator.hardwareConcurrency <= 4;
+
+    const slowConnection =
+        "connection" in navigator &&
+        (navigator.connection.saveData ||
+            ["slow-2g", "2g", "3g"].includes(navigator.connection.effectiveType));
+
+    return (
+        !prefersReducedMotion &&
+        !slowConnection &&
+        !(smallScreen && (lowMemory || lowCpu)) &&
+        !(lowMemory && lowCpu)
+    );
+}
+
+function watchForLag(onLagDetected) {
+    let frameId;
+    let lastFrame = performance.now();
+    let slowFrames = 0;
+    let stopped = false;
+
+    const checkFrame = (now) => {
+        if (stopped) {
+            return;
+        }
+
+        const frameTime = now - lastFrame;
+        lastFrame = now;
+
+        if (frameTime > 34) {
+            slowFrames += 1;
+        } else {
+            slowFrames = Math.max(0, slowFrames - 1);
+        }
+
+        if (slowFrames >= 18) {
+            onLagDetected();
+            stopped = true;
+            return;
+        }
+
+        frameId = requestAnimationFrame(checkFrame);
+    };
+
+    frameId = requestAnimationFrame(checkFrame);
+
+    return () => {
+        stopped = true;
+
+        if (frameId) {
+            cancelAnimationFrame(frameId);
+        }
+    };
+}
+
 export default function Hero() {
     const ref = useRef(null);
     const cvMenuRef = useRef(null);
@@ -9,7 +80,33 @@ export default function Hero() {
     const fireworksRef = useRef(null);
     const isInView = useInView(ref, { once: true });
     const [showCvMenu, setShowCvMenu] = useState(false);
+    const [effectsEnabled, setEffectsEnabled] = useState(() => shouldEnableHeroEffects());
     const [cursorPosition, setCursorPosition] = useState({ x: -9999, y: -9999 });
+
+    useEffect(() => {
+        const updateEffects = () => {
+            setEffectsEnabled(shouldEnableHeroEffects());
+        };
+
+        const reducedMotionQuery = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
+
+        updateEffects();
+
+        window.addEventListener("resize", updateEffects);
+        reducedMotionQuery.addEventListener("change", updateEffects);
+
+        const stopWatchingLag = watchForLag(() => {
+            setEffectsEnabled(false);
+        });
+
+        return () => {
+            window.removeEventListener("resize", updateEffects);
+            reducedMotionQuery.removeEventListener("change", updateEffects);
+            stopWatchingLag();
+        };
+    }, []);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -40,7 +137,7 @@ export default function Hero() {
         setShowCvMenu((value) => {
             const nextValue = !value;
 
-            if (nextValue && cvButtonRef.current) {
+            if (nextValue && effectsEnabled && cvButtonRef.current) {
                 const rect = cvButtonRef.current.getBoundingClientRect();
 
                 fireworksRef.current?.launchAt(
@@ -54,6 +151,10 @@ export default function Hero() {
     };
 
     const handleMouseMove = (event) => {
+        if (!effectsEnabled) {
+            return;
+        }
+
         const rect = event.currentTarget.getBoundingClientRect();
 
         setCursorPosition({
@@ -76,37 +177,41 @@ export default function Hero() {
         >
             <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:56px_56px]" />
 
-            <motion.div
-                className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,#00ad6a_1px,transparent_1px),linear-gradient(to_bottom,#00ad6a_1px,transparent_1px)] [background-size:56px_56px]"
-                style={{
-                    WebkitMaskImage:
-                        "radial-gradient(ellipse 34% 100% at 50% 50%, black 0%, black 28%, rgba(0,0,0,0.55) 45%, transparent 72%)",
-                    maskImage:
-                        "radial-gradient(ellipse 34% 100% at 50% 50%, black 0%, black 28%, rgba(0,0,0,0.55) 45%, transparent 72%)",
-                    WebkitMaskSize: "260% 100%",
-                    maskSize: "260% 100%",
-                    WebkitMaskRepeat: "no-repeat",
-                    maskRepeat: "no-repeat",
-                }}
-                animate={{
-                    WebkitMaskPosition: ["145% 0%", "-45% 0%"],
-                    maskPosition: ["145% 0%", "-45% 0%"],
-                }}
-                transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    repeatDelay: 0.001,
-                    ease: [0.65, 0, 0.35, 1],
-                }}
-            />
+            {effectsEnabled && (
+                <motion.div
+                    className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,#00ad6a_1px,transparent_1px),linear-gradient(to_bottom,#00ad6a_1px,transparent_1px)] [background-size:56px_56px]"
+                    style={{
+                        WebkitMaskImage:
+                            "radial-gradient(ellipse 34% 100% at 50% 50%, black 0%, black 28%, rgba(0,0,0,0.55) 45%, transparent 72%)",
+                        maskImage:
+                            "radial-gradient(ellipse 34% 100% at 50% 50%, black 0%, black 28%, rgba(0,0,0,0.55) 45%, transparent 72%)",
+                        WebkitMaskSize: "260% 100%",
+                        maskSize: "260% 100%",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskRepeat: "no-repeat",
+                    }}
+                    animate={{
+                        WebkitMaskPosition: ["145% 0%", "-45% 0%"],
+                        maskPosition: ["145% 0%", "-45% 0%"],
+                    }}
+                    transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        repeatDelay: 0.001,
+                        ease: [0.65, 0, 0.35, 1],
+                    }}
+                />
+            )}
 
-            <div
-                className="pointer-events-none absolute inset-0 opacity-[0.38] transition-opacity duration-300 [background-image:linear-gradient(to_right,#00ad6a_1px,transparent_1px),linear-gradient(to_bottom,#00ad6a_1px,transparent_1px)] [background-size:56px_56px]"
-                style={{
-                    WebkitMaskImage: `radial-gradient(circle 115px at ${cursorPosition.x}px ${cursorPosition.y}px, black 0%, black 38%, transparent 72%)`,
-                    maskImage: `radial-gradient(circle 115px at ${cursorPosition.x}px ${cursorPosition.y}px, black 0%, black 38%, transparent 72%)`,
-                }}
-            />
+            {effectsEnabled && (
+                <div
+                    className="pointer-events-none absolute inset-0 opacity-[0.38] transition-opacity duration-300 [background-image:linear-gradient(to_right,#00ad6a_1px,transparent_1px),linear-gradient(to_bottom,#00ad6a_1px,transparent_1px)] [background-size:56px_56px]"
+                    style={{
+                        WebkitMaskImage: `radial-gradient(circle 115px at ${cursorPosition.x}px ${cursorPosition.y}px, black 0%, black 38%, transparent 72%)`,
+                        maskImage: `radial-gradient(circle 115px at ${cursorPosition.x}px ${cursorPosition.y}px, black 0%, black 38%, transparent 72%)`,
+                    }}
+                />
+            )}
 
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0d0d0d] to-transparent" />
 
@@ -184,7 +289,7 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            <HeroFireworks ref={fireworksRef} />
+            <HeroFireworks ref={fireworksRef} enabled={effectsEnabled} />
         </section>
     );
 }
