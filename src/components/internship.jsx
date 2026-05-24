@@ -85,11 +85,11 @@ export default function Internship() {
                         </h4>
 
                         <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                            During my internship, I worked on a practical IT assignment in a professional environment. The assignment focused on analysing a real need, defining a structured approach, and realising a solution that answered the expectations of the organisation.
+                            During my internship at Axxes, I worked on the development of an internal knowledge-sharing platform. The goal of this project was to make knowledge within the organisation more centralised, structured, and accessible for employees.
                         </p>
 
                         <p className="text-gray-300 text-base lg:text-lg leading-relaxed mt-5">
-                            I combined research, planning, implementation, testing, documentation, and reflection throughout the project. This allowed me to apply my technical knowledge while also improving my communication, independence, and project-based way of working.
+                            The assignment combined analysis, technical research, planning, development, testing, documentation, and reflection. Throughout the project, I contributed to both the functional and technical realisation of the platform, while also documenting the process in the required bachelor portfolio documents.
                         </p>
                     </motion.article>
 
@@ -101,28 +101,28 @@ export default function Internship() {
                         className="bg-gradient-to-br from-[#031e14] to-[#009b5f] border border-[#1d5f48] rounded-2xl p-6 sm:p-8"
                     >
                         <h4 className="text-white text-2xl lg:text-3xl font-bold mb-5">
-                            Assignment Focus
+                            Internship Focus
                         </h4>
 
                         <div className="space-y-5">
                             <div>
                                 <p className="text-white font-bold">What</p>
                                 <p className="text-gray-100 leading-relaxed">
-                                    I completed an internship assignment that resulted in a concrete IT solution and the required bachelor portfolio documents.
+                                    I helped build an internal knowledge platform that allows Axxes employees to create, manage, share, and discover knowledge in a more structured way.
                                 </p>
                             </div>
 
                             <div>
                                 <p className="text-white font-bold">How</p>
                                 <p className="text-gray-100 leading-relaxed">
-                                    I followed a structured process based on analysis, planning, development, testing, documentation, and evaluation.
+                                    I followed a structured approach based on requirement analysis, technology research, UI development, backend integration, testing, and documentation.
                                 </p>
                             </div>
 
                             <div>
                                 <p className="text-white font-bold">Result</p>
                                 <p className="text-gray-100 leading-relaxed">
-                                    I delivered the planned outcome, documented the realisation process, and reflected on my growth as an IT professional.
+                                    The project resulted in a working web application, supported by a project plan, realisation document, and reflection document.
                                 </p>
                             </div>
                         </div>
@@ -141,11 +141,15 @@ export default function Internship() {
                     </h4>
 
                     <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                        The internship assignment centred around solving a real-world problem through a technical and methodical approach. I first explored the context of the assignment, identified the expectations and requirements, and translated them into a clear project plan.
+                        The internship assignment started from a real need within Axxes: knowledge was available in the organisation, but it was spread across different tools, channels, and people. Together with the team, I helped analyse this problem and translated it into a concrete software solution.
                     </p>
 
                     <p className="text-gray-300 text-base lg:text-lg leading-relaxed mt-5">
-                        After the analysis phase, I realised the solution step by step and made technical choices based on the needs of the project. I tested the result, documented the process, and evaluated both the final product and my own development during the internship.
+                        My work included analysing requirements, contributing to the data model and technical architecture, developing several front-end and back-end features, and improving the maintainability of the application. I also worked with tools such as Jira, Bitbucket, Figma, Angular, Java Spring Boot, MySQL, Azure Entra ID, and AWS.
+                    </p>
+
+                    <p className="text-gray-300 text-base lg:text-lg leading-relaxed mt-5">
+                        Besides the technical realisation, I documented the project in a project plan, a realisation document, and a reflection document. These documents explain the preparation, technical choices, implementation process, and my personal growth during the internship.
                     </p>
                 </motion.article>
 

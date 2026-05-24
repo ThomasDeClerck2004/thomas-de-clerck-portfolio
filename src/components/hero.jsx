@@ -323,14 +323,14 @@ export default function Hero() {
                         {showCvMenu && (
                             <div className="absolute left-1/2 top-full z-40 mt-3 w-44 -translate-x-1/2 overflow-hidden rounded-md border border-white/10 bg-[#131313] shadow-xl">
                                 <a
-                                    href="/assets/CV_Thomas_De_Clerck_2025_NL.pdf"
+                                    href="/assets/CV_Thomas_De_Clerck_NL.pdf"
                                     download
                                     className="block px-4 py-3 text-sm text-gray-200 transition hover:bg-white/10"
                                 >
                                     Dutch CV
                                 </a>
                                 <a
-                                    href="/assets/CV_Thomas_De_Clerck_2025_EN.pdf"
+                                    href="/assets/CV_Thomas_De_Clerck_EN.pdf"
                                     download
                                     className="block px-4 py-3 text-sm text-gray-200 transition hover:bg-white/10"
                                 >
