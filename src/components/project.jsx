@@ -21,6 +21,7 @@ export default function Project({ projects }) {
                         key={index}
                         projectName={project.name}
                         imageUrl={project.imageUrl}
+                        videoUrl={project.videoUrl}
                         description={project.description}
                         index={index}
                         onView={() => openModal(project)}

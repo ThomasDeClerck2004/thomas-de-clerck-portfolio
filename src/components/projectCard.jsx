@@ -1,8 +1,14 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 
-export default function ProjectCard({ projectName, imageUrl, description, onView, numberOfContributors }) {
+export default function ProjectCard({
+    projectName,
+    imageUrl,
+    videoUrl,
+    description,
+    onView,
+    numberOfContributors
+}) {
     return (
         <Tilt
             className="w-full max-w-[340px] sm:max-w-[360px] 2xl:max-w-[400px] shadow-lg"
@@ -17,11 +23,27 @@ export default function ProjectCard({ projectName, imageUrl, description, onView
                 whileHover={{ scale: 1.05 }}
             >
                 <div className="w-full max-w-md mx-auto bg-[#399b75] shadow-lg rounded-xl overflow-hidden">
-                    <img
-                        src={imageUrl || "/src/assets/placeholder.png"}
-                        alt={projectName}
-                        className="w-full h-44 sm:h-52 2xl:h-60 object-cover"
-                    />
+                    {videoUrl ? (
+                        <video
+                            autoPlay
+                            muted
+                            defaultMuted
+                            loop
+                            playsInline
+                            disablePictureInPicture
+                            preload="none"
+                            poster={imageUrl || "/assets/placeholder.png"}
+                            className="w-full h-44 sm:h-52 2xl:h-60 object-cover"
+                        >
+                            <source src={videoUrl} type="video/mp4" />
+                        </video>
+                    ) : (
+                        <img
+                            src={imageUrl || "/assets/placeholder.png"}
+                            alt={projectName}
+                            className="w-full h-44 sm:h-52 2xl:h-60 object-cover"
+                        />
+                    )}
                     <div className="p-3 2xl:p-4">
                         <h2 className="text-base 2xl:text-lg font-semibold text-white">{projectName}</h2>
                     </div>

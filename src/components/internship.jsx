@@ -157,11 +157,16 @@ export default function Internship() {
                     className="mt-10 grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] gap-8 lg:gap-10 items-center"
                 >
                     <div className="w-full overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#111] shadow-lg shadow-black/30">
-                        <img
-                            src="/assets/Over21.GIF"
-                            alt="Internship project preview"
-                            className="w-full h-auto max-h-[520px] object-cover object-top"
-                        />
+                        <video
+                            autoPlay
+                            muted
+                            defaultMuted
+                            loop
+                            playsInline
+                            preload="none"
+                            >
+                            <source src="/assets/Kennisdelingsplatform.mp4" type="video/mp4" />
+                        </video>
                     </div>
 
                     <div>

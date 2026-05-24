@@ -48,11 +48,27 @@ export default function Modal({ project, onClose }) {
 
                 {/* Project image */}
                 <div className="hidden sm:block relative rounded-lg overflow-hidden mb-6 group">
-                    <img
-                        src={project.imageUrl || "/placeholder.svg"}
-                        alt={project.name}
-                        className="w-full h-70 object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {project.videoUrl ? (
+                        <video
+                            autoPlay
+                            muted
+                            defaultMuted
+                            loop
+                            playsInline
+                            disablePictureInPicture
+                            preload="none"
+                            poster={project.imageUrl || "/assets/placeholder.png"}
+                            className="w-full h-70 object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+                        >
+                            <source src={project.videoUrl} type="video/mp4" />
+                        </video>
+                    ) : (
+                        <img
+                            src={project.imageUrl || "/assets/placeholder.png"}
+                            alt={project.name}
+                            className="w-full h-70 object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+                        />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 </div>
 

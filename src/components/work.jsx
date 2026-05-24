@@ -41,7 +41,8 @@ export default function Work() {
                     projects={[
                         {
                             name: "FilmVault",
-                            imageUrl: "/assets/FilmVault.gif",
+                            imageUrl: "/assets/FilmVault.mp4",
+                            videoUrl: "/assets/FilmVault.mp4",
                             link: "https://filmvault.filmvault.be/",
                             description: "A website to track movies and series you've watched or want to watch. Features include watchlists, trailers, and downloads.",
                             descriptionLong: "In the first semester of the second year of my studies, during the Web Development course, we were assigned to create a website independently. The project required a sufficiently complex database structure to support multiple entities, allowing us to implement CRUD functionalities and user management. For this assignment, I developed a website that helps users keep track of the films and series they have watched or plan to watch. Users can create and download personalized watchlists, watch trailers, and access various other features designed to enhance their viewing experience.",
@@ -59,7 +60,8 @@ export default function Work() {
                         },
                         {
                             name: "Donkey Kong",
-                            imageUrl: "/assets/donkeykong.gif",
+                            imageUrl: "/assets/Donkeykong.mp4",
+                            videoUrl: "/assets/Donkeykong.mp4",
                             link: "https://github.com/Thomas997/Donkey-Kong",
                             description: "A recreation of the classic Donkey Kong game using Windows Forms and C#, made as our high school final project.",
                             descriptionLong: (
@@ -75,49 +77,84 @@ export default function Work() {
                             numberOfContributors: 2,
                         },
                         {
-                            name: "Personal Portfolio",
-                            imageUrl: "/assets/portfolio.gif",
-                            link: "https://github.com/ThomasDeClerck2004/skill-2-portfolio-2024-2025",
-                            description: "My personal portfolio site, built from scratch in React for a school assignment. It was my first time using React.",
+                            name: "Knowledge Sharing Platform",
+                            imageUrl: "/assets/Kennisdelingsplatform.mp4",
+                            videoUrl: "/assets/Kennisdelingsplatform.mp4",
+                            link: "/assets/internship-realization-document.pdf",
+                            description: "An internal knowledge-sharing platform built for Axxes during my internship, focused on centralizing and managing company knowledge.",
                             descriptionLong: (
                                 <>
-                                    During the second semester of my second year as an IT student, I took part in the Skills Integration Lab 2 course, where we were tasked with creating a personal portfolio website to demonstrate our programming skills and knowledge. The site you're currently visiting is the final product of that assignment. 
+                                    During my internship at Axxes, I worked on an internal knowledge-sharing platform together with a team of fellow interns. The goal of this project was to create a central place where employees could share, manage and discover knowledge more easily, instead of having information spread across different tools and channels.
                                     <br />
                                     <br />
-                                    While React wasn’t a requirement, I chose to use it to push myself out of my comfort zone and explore something new, instead of relying on Laravel, which I had already used in earlier projects. This was my first experience working with React, and it turned out to be a rewarding learning process. I gained a lot of new insights and really enjoyed building the site from the ground up.
+                                    This project gave me the opportunity to work on a larger real-world application using Angular, Java Spring Boot, MySQL and Azure Entra ID. I contributed to several parts of the platform, including frontend components, topic management, tag management, user roles, authentication-related functionality and backend refactoring. It was a valuable experience because I learned how to work in a team, handle feedback from stakeholders and build software that had to fit within a professional company context.
                                 </>
                             ),
-                            myContribution: "I developed this project all by myself, learning React and other tools along the way, which was a great experience.",
-                            tools: ["React", "Tailwind CSS", "Framer Motion", "Alpine.js", "Parallax Tilt", "React Router", "..."],
+                            myContribution: "I worked on both the frontend and backend, including topic features, tag management, user role management, the responsive sidebar, error pages and parts of the backend refactor.",
+                            tools: ["Angular", "Java Spring Boot", "MySQL", "Azure Entra ID", "Tailwind CSS", "Bitbucket", "Jira", "..."],
+                            numberOfContributors: 4,
+                        },
+                        {
+                            name: "Salesforce Business Case",
+                            imageUrl: "/assets/SalesForce.mp4",
+                            videoUrl: "/assets/SalesForce.mp4",
+                            link: "https://www.linkedin.com/posts/thomas-de-clerck-b9162b2a2_thomasmore-itfactory-deloittedigital-ugcPost-7403019827679748096-EPtE/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEkQWt0BGbrMGjCZIGxx3ZZTTmX_Qi5CQeM",
+                            description: "A full Salesforce platform built as part of a Deloitte-led business case, where we designed and implemented a solution for a simulated company.",
+                            descriptionLong: (
+                                <>
+                                    During the first semester of my third year as an IT student, I took part in a Deloitte-led business case focused on Salesforce. The assignment was based on Equibel Automotive, a simulated company active in the horse truck and motorhome industry. Together with my teammate, I had to analyse the client’s needs and translate them into a working Salesforce solution.
+                                    <br />
+                                    <br />
+                                    The project started with a Salesforce and Deloitte bootcamp, where we learned the foundations of Salesforce, Jira, client interviews and agile project delivery. After that, we worked on the actual business case by configuring the Salesforce environment, setting up the CRM structure, implementing user stories and preparing the solution for a client-style presentation.
+                                    <br />
+                                    <br />
+                                    This project was especially valuable because it combined technical configuration with business analysis and client communication. I learned how important it is to ask the right questions, document requirements clearly and build a solution that matches the needs of the business instead of only focusing on the technical side.
+                                </>
+                            ),
+                            myContribution: "I worked on the Salesforce configuration, translated business requirements into user stories, helped structure the CRM solution and contributed to the final client presentation.",
+                            tools: ["Salesforce", "Sales Cloud", "Salesforce Flow", "Validation Rules", "Reports & Dashboards", "Jira", "..."],
+                            numberOfContributors: 2,
+                        },
+                        {
+                            name: "Microsoft 365 Project",
+                            imageUrl: "/assets/Microsoft.mp4",
+                            videoUrl: "/assets/Microsoft.mp4",
+                            link: "https://youtu.be/ZPyLV5aCMYE",
+                            description: "A Microsoft 365 and Power Platform proof of concept built for IOK Waste Management, focused on digitalising the paper-based ROS registration process.",
+                            descriptionLong: (
+                                <>
+                                    During the first semester of my third year as an IT student, I took part in a real business case for IOK Waste Management. The assignment focused on the ROS process, where drivers currently register collections from recycling parks on paper. Together with my teammate, I had to analyse the existing workflow and design a proof of concept that could digitalise this process using Microsoft 365 and Power Platform.
+                                    <br />
+                                    <br />
+                                    The project started with an introduction to Microsoft 365, Power Apps, Power Automate, Dataverse and SharePoint. After that, we analysed the needs of the different users, such as ROS drivers, administrative employees and management. Based on those needs, we built a low-code solution that allowed collection data to be registered digitally, reduced manual input, improved traceability and supported reporting.
+                                    <br />
+                                    <br />
+                                    This project was especially valuable because it was not only about building an application, but also about thinking like a consultant. We had to understand the client’s process, ask the right questions, make realistic choices within the Microsoft ecosystem and explain how our solution created business value for IOK Waste Management.
+                                </>
+                            ),
+                            myContribution: "I worked on the analysis of the ROS process, helped translate the business requirements into a Power Platform solution, contributed to the Power Apps and Dataverse structure, and helped prepare the final customer-oriented demo.",
+                            tools: ["Microsoft 365", "Power Apps", "Power Automate", "Dataverse", "SharePoint", "Power BI", "..."],
+                            numberOfContributors: 2,
+                        },
+                        {
+                            name: "Shushify",
+                            imageUrl: "/assets/shushify.jpg",
+                            videoUrl: "none",
+                            link: "https://github.com/ThomasDeClerck2004/Shushify",
+                            description: "A small automation script that mutes Spotify ads by detecting when an advertisement is playing and restores the volume afterwards.",
+                            descriptionLong: "I created a lightweight script to make listening to Spotify more enjoyable without constant interruptions. The script automatically detects when Spotify starts playing an advertisement, mutes the system volume of Spotify, and then restores the sound back to its original level once the ad is finished. This way, I can continue enjoying my music seamlessly without being disturbed by ads. The project demonstrates my ability to identify everyday annoyances and solve them with practical programming solutions.",
+                            myContribution: (
+                                <>
+                                    I independently built this project from scratch, making full use of the Spotify Developer API and several Python libraries. To ensure accessibility, I also created a clear README with a step by step guide, so that anyone can set up and use the script easily.
+                                </>
+                            ),
+                            tools: ["Python", "API usage"],
                             numberOfContributors: 1,
                         },
                         {
-                            name: "Project Skil-2 | TTC Westel",
-                            imageUrl: "/assets/TTC.gif",
-                            link: "/assets/Report_TTC_Westel.pdf",
-                            description: "Team project with an internal client at Thomas More. We used Scrum, held stand-ups, created ERDs and use cases, and designed a prototype in Figma.",
-                            descriptionLong: (
-                                <>
-                                    As part of a team of six students, including myself, we were assigned to develop an IT project for an internal client: TTC Westel, a local table tennis club in which one of our teachers is involved. The goal was to gain hands-on experience with the early phases of a software project.
-                                    <br />
-                                    <br />
-                                    Working closely with the client, we conducted several meetings to understand their needs and used the Scrum methodology with daily stand-ups to manage our workflow. Throughout the project, we created an Entity Relationship Diagram (ERD), Use Case diagrams, and analyzed the functional requirements. We also designed a visual proof of concept using Figma and documented the entire process in a detailed report.
-                                </>
-                            ),
-                            myContribution: (
-                                <>
-                                    My contribution to this project mainly involved helping to create the diagrams, such as the Use Case diagram and the ERD. I was also responsible for designing several pages in Figma and contributed significantly to the final report.
-                                    <br />
-                                    <br />
-                                    Through this project, I learned how to work effectively in a team, communicate with a real client, and apply the Scrum methodology.
-                                </>
-                            ),
-                            tools: ["Figma", "StarUML", "Microsoft Word", "..."],
-                            numberOfContributors: 6,
-                        },
-                        {
                             name: "Project Skil-2 | De Duffalos",
-                            imageUrl: "/assets/duffalo.gif",
+                            imageUrl: "/assets/Duffalo.mp4",
+                            videoUrl: "/assets/Duffalo.mp4",
                             link: "https://de.duffalos.be/",
                             description: "Developed a website for football club De Duffalos. Worked in a team of six using Scrum throughout the entire project lifecycle.",
                             descriptionLong: (
@@ -136,58 +173,46 @@ export default function Work() {
                                     Through this project, I strengthened my skills in Laravel, PHP, Blade, and Tailwind CSS. Although I already had some experience with these technologies, working on a real project in a larger team helped me deepen my understanding and apply best practices.
                                 </>
                             ),
-                            tools: ["Tailwind CSS", "Alpine.js", "Laravel", "Livewire", "Sqlite", "..."],
+                            tools: ["Laravel", "Tailwind CSS", "Alpine.js", "Livewire", "Sqlite", "..."],
                             numberOfContributors: 6,
                         },
                         {
-                            name: "Brussels Brews",
-                            imageUrl: "/assets/brews.gif",
-                            link: "https://brewery1itf604.netlify.app/",
-                            description: "Created a fictional brewery website for Brussels Brews in a group of three, focusing on both front-end and back-end.",
-                            descriptionLong: "During the second semester of my first year studying IT at Thomas More, I worked with two classmates on a project for the course Full Stack Essentials. We were tasked with designing and building a website for a fictional client Brussels Brews, a beer brewery. This was our first experience developing a full-stack website, involving both front-end and back-end work. It was a valuable introduction to combining different technologies and collaborating in a small team to bring a project from concept to completion.",
+                            name: "Over21",
+                            imageUrl: "/assets/Over21.mp4",
+                            videoUrl: "/assets/Over21.mp4",
+                            link: "/assets/Over21 Voorstel.pdf",
+                            description: "Created an AI-powered blackjack chatbot application called Over21 in a team project, focusing on chatbot interaction, API integration, and adaptive cards.",
+                            descriptionLong: "During the AI.NET course at Thomas More, I worked on Over21, a fictional casino application built around a transactional chatbot. The goal of the project was to create a chatbot that could interact with users in Microsoft Teams and allow them to play blackjack against an AI opponent. The application combined a .NET API, Semantic Kernel plugins, Microsoft Bot Framework, Azure Bot Service, and adaptive cards to create an interactive and user-friendly experience. This project was a valuable introduction to building AI-supported applications that do more than only answer questions, by also connecting to APIs, managing game state, and performing real actions based on user input.",
                             myContribution: (
                                 <>
-                                    We divided the different pages among ourselves and helped each other where needed. I was responsible for the homepage, the 'How it's made' page, and the contact page.
+                                    Within this project, we worked together on building the chatbot structure, the API connection, and the blackjack functionality. I contributed to the development of the chatbot flow, the communication between the Azure Bot and the API, and the adaptive cards that allowed users to start a game, place a bet, and choose actions such as hit or stand.
                                     <br />
                                     <br />
-                                    Through this project, I built on my existing experience with HTML, CSS, JavaScript, PHP, and Bootstrap, while learning how to integrate a Python API for the first time. It was my first full-stack development project, which taught me how to connect the front end with the back end effectively.
+                                    Through this project, I gained experience with Semantic Kernel, plugin-based AI functionality, and Microsoft Bot Framework. I also learned how to build a chatbot that communicates with a back-end API and returns structured responses using adaptive cards. This helped me better understand how AI can be combined with traditional software development to create interactive applications.
                                     <br />
-                                    <strong>**Note:**</strong> Azure Database connection is not running anymore, but the website is still functional.
+                                    <strong>**Note:**</strong> The Azure and Teams hosting setup may no longer be active, but the project still demonstrates the full chatbot architecture and game logic.
                                 </>
                             ),
-                            tools: ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap", "Python"],
-                            numberOfContributors: 3,
+                            tools: [".NET", "C#", "ASP.NET Core Web API", "Semantic Kernel", "Microsoft Bot Framework", "Azure Bot Service", "Microsoft Teams"],
+                            numberOfContributors: 2,
                         },
                         {
-                            name: "Project IoT-Bridge",
-                            imageUrl: "/assets/IoT.gif",
-                            link: "https://www.youtube.com/watch?v=Z2LBS0gXR6E",
-                            description: "Built a smart bridge system in a group of three for our IoT course. The bridge opened for boats and closed for cars, based on requirements.",
-                            descriptionLong: "During the second semester of my first year at Thomas More, I worked on a group project for the IoT Essentials course. Together with two classmates, we were tasked with designing and building a project based on a set of requirements using IoT technology. We came up with the idea of a smart bridge that uses sound sensors to detect approaching boats. The bridge would automatically open for boat traffic and close again to allow land traffic to cross. It was a challenging and creative project that helped us understand how to apply sensors and automation in real-world scenarios.",
+                            name: "Vinylla",
+                            imageUrl: "/assets/Vinylla.mp4",
+                            videoUrl: "/assets/Vinylla.mp4",
+                            link: "/assets/Flutter + Unity Vuforia AR Project.pdf",
+                            description: "Created a Spotify/music-themed mobile application called Vinylla in a group project, combining app development with augmented reality features.",
+                            descriptionLong: "During my IT studies at Thomas More, I worked with a teammate on Vinylla, a fictional music-themed mobile application. The name Vinylla was created by us and was used as the identity for the project. The app focused on combining a modern mobile experience with interactive features, where users could engage with music-related content in a more visual and innovative way. This project gave us the opportunity to work with mobile development, back-end integration and augmented reality technologies within one complete application.",
                             myContribution: (
                                 <>
-                                    My contribution to this project was helping to write the Python code that controlled the opening and closing of the bridge, the bridge design, as well as working on the final documentation.
+                                    Within this project, we divided the work between the two of us and supported each other where needed. I contributed to the development of the mobile application by working on assigned parts of the app, helping with the integration between the front-end, back-end and database, and making sure the different parts of the project worked together properly.
                                     <br />
                                     <br />
-                                    Through this project, I gained practical experience with Python, the Orange Pi, multithreading, and various IoT components. I learned how to work with hardware inputs and manage concurrent processes using multithreading.
+                                    Through this project, I gained experience with building a mobile application instead of a traditional website. I also learned more about combining different technologies into one coherent project. This helped me improve both my technical skills and my ability to collaborate in a small team.
                                 </>
                             ),
-                            tools: ["Python", "OrangePI", "Multithreading", "IoT Gear"],
-                            numberOfContributors: 3,
-                        },
-                        {
-                            name: "Shushify",
-                            imageUrl: "/assets/shushify.jpg",
-                            link: "https://github.com/ThomasDeClerck2004/Shushify",
-                            description: "A small automation script that mutes Spotify ads by detecting when an advertisement is playing and restores the volume afterwards.",
-                            descriptionLong: "I created a lightweight script to make listening to Spotify more enjoyable without constant interruptions. The script automatically detects when Spotify starts playing an advertisement, mutes the system volume of Spotify, and then restores the sound back to its original level once the ad is finished. This way, I can continue enjoying my music seamlessly without being disturbed by ads. The project demonstrates my ability to identify everyday annoyances and solve them with practical programming solutions.",
-                            myContribution: (
-                                <>
-                                    I independently built this project from scratch, making full use of the Spotify Developer API and several Python libraries. To ensure accessibility, I also created a clear README with a step by step guide, so that anyone can set up and use the script easily.
-                                </>
-                            ),
-                            tools: ["Python", "API usage"],
-                            numberOfContributors: 1,
+                            tools: ["Flutter", "Unity", "Vuforia", "Tailwind CSS", "Supabase", "Java Spring Boot"],
+                            numberOfContributors: 2,
                         },
                     ]}
                 />
