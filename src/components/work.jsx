@@ -139,7 +139,7 @@ export default function Work() {
                         {
                             name: "Shushify",
                             imageUrl: "/assets/shushify.jpg",
-                            videoUrl: "none",
+                            videoUrl: null,
                             link: "https://github.com/ThomasDeClerck2004/Shushify",
                             description: "A small automation script that mutes Spotify ads by detecting when an advertisement is playing and restores the volume afterwards.",
                             descriptionLong: "I created a lightweight script to make listening to Spotify more enjoyable without constant interruptions. The script automatically detects when Spotify starts playing an advertisement, mutes the system volume of Spotify, and then restores the sound back to its original level once the ad is finished. This way, I can continue enjoying my music seamlessly without being disturbed by ads. The project demonstrates my ability to identify everyday annoyances and solve them with practical programming solutions.",

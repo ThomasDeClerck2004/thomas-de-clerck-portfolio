@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 
@@ -9,33 +10,46 @@ export default function ProjectCard({
     onView,
     numberOfContributors
 }) {
+    const videoRef = useRef(null);
+
+    const handleMouseEnter = () => {
+        videoRef.current.playbackRate = 1.5;
+        videoRef.current?.play();
+    };
+
+    const handleMouseLeave = () => {
+        videoRef.current?.pause();
+    };
+
     return (
         <Tilt
             className="w-full max-w-[340px] sm:max-w-[360px] 2xl:max-w-[400px] shadow-lg"
-            tiltMaxAngleX={15}
-            tiltMaxAngleY={15}
-            perspective={1000}
-            scale={1.05}
-            transitionSpeed={400}
+            tiltMaxAngleX={5}
+            tiltMaxAngleY={5}
+            perspective={1400}
+            scale={1.015}
+            transitionSpeed={700}
         >
             <motion.div
                 className="relative bg-gradient-to-bl from-[#031e1456] to-[#399b75] border-4 border-[#0d0d0d] rounded-2xl shadow-lg shadow-primary p-4 sm:p-5 2xl:p-6 w-full min-h-[460px] sm:min-h-[470px] 2xl:min-h-[500px]"
                 whileHover={{ scale: 1.05 }}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
             >
                 <div className="w-full max-w-md mx-auto bg-[#399b75] shadow-lg rounded-xl overflow-hidden">
                     {videoUrl ? (
                         <video
-                            autoPlay
+                            ref={videoRef}
                             muted
                             defaultMuted
                             loop
                             playsInline
                             disablePictureInPicture
-                            preload="none"
-                            poster={imageUrl || "/assets/placeholder.png"}
+                            preload="metadata"
+                            poster={imageUrl || undefined}
                             className="w-full h-44 sm:h-52 2xl:h-60 object-cover"
                         >
-                            <source src={videoUrl} type="video/mp4" />
+                            <source src={`${videoUrl}#t=0.001`} type="video/mp4" />
                         </video>
                     ) : (
                         <img

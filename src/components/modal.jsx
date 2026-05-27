@@ -56,9 +56,10 @@ export default function Modal({ project, onClose }) {
                             loop
                             playsInline
                             disablePictureInPicture
+                            controls
                             preload="none"
-                            poster={project.imageUrl || "/assets/placeholder.png"}
-                            className="w-full h-70 object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+                            poster={project.imageUrl || undefined}
+                            className="w-full max-h-[40vh] object-contain rounded-lg bg-black"
                         >
                             <source src={project.videoUrl} type="video/mp4" />
                         </video>
@@ -69,7 +70,7 @@ export default function Modal({ project, onClose }) {
                             className="w-full h-70 object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
                         />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
 
                 <div className='space-y-6'>

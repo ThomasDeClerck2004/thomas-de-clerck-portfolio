@@ -166,6 +166,8 @@ export default function Internship() {
                             muted
                             defaultMuted
                             loop
+                            controls
+                            disablePictureInPicture
                             playsInline
                             preload="none"
                             >

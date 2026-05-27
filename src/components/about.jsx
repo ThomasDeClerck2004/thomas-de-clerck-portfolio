@@ -36,11 +36,11 @@ export default function About() {
                     >
                         <Tilt
                             className="w-full h-full border-4 border-[#009b5f] rounded-2xl overflow-hidden shadow-lg shadow-[#009b5f]/30"
-                            tiltMaxAngleX={10}
-                            tiltMaxAngleY={10}
-                            perspective={1000}
-                            scale={1.03}
-                            transitionSpeed={400}
+                            tiltMaxAngleX={5}
+                            tiltMaxAngleY={5}
+                            perspective={1400}
+                            scale={1.015}
+                            transitionSpeed={700}
                         >
                             <img
                                 src="/assets/Thomas_De_Clerck_Portrait.jpg"
