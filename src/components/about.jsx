@@ -61,10 +61,10 @@ export default function About() {
                             Hello, I'm <span className="text-[#009b5f]">Thomas</span>
                         </h2>
                         <p className="text-gray-300 font-bold text-lg lg:text-xl 2xl:text-2xl pt-4 sm:text-left text-center">
-                            Since high school, I have had a strong interest in IT and am motivated to continuously learn and quickly master new tools and technologies. During my studies at Thomas More, I worked on various web development projects in a team, further developing my technical skills, collaboration, and planning abilities.
+                            During my studies at Thomas More, I worked on various team-based web development projects where I gained practical experience in building web applications, solving technical challenges, and collaborating with others. These projects helped me further develop my technical skills, communication, planning, and ability to work effectively in a team.
                             <br />
                             <br />
-                            Now that I am about to graduate, I am looking for a stable job that matches my interests and skills in web development.
+                            As I graduate with my bachelor's degree, I am looking for a stable job that matches my interests and skills within web development.
                         </p>
 
                         <div className='flex flex-col mt-4 text-white'>
