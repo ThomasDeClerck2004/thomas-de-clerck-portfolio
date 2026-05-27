@@ -166,9 +166,11 @@ export default function Internship() {
                             muted
                             defaultMuted
                             loop
-                            controls
-                            disablePictureInPicture
                             playsInline
+                            controls
+                            controlsList="nodownload"
+                            onContextMenu={(e) => e.preventDefault()}
+                            disablePictureInPicture
                             preload="none"
                             >
                             <source src="/assets/Kennisdelingsplatform.mp4" type="video/mp4" />

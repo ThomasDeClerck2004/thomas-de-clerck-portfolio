@@ -55,8 +55,10 @@ export default function Modal({ project, onClose }) {
                             defaultMuted
                             loop
                             playsInline
-                            disablePictureInPicture
                             controls
+                            controlsList="nodownload"
+                            onContextMenu={(e) => e.preventDefault()}
+                            disablePictureInPicture
                             preload="none"
                             poster={project.imageUrl || undefined}
                             className="w-full max-h-[40vh] object-contain rounded-lg bg-black"
