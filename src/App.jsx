@@ -4,6 +4,7 @@ import './index.css';
 // Page sections
 import { Nav, Footer } from "./components";
 import IndexPage from "./pages/indexPage";
+import AiDisclaimerBubble from "./components/AiDisclaimerBubble";
 
 function Main() {
 	return (
@@ -21,8 +22,9 @@ function App() {
     <BrowserRouter>
       <div className="relative z-0 bg-[#0d0d0d]">
         <Nav />
-          <Main />
+        <Main />
         <Footer />
+        <AiDisclaimerBubble />
       </div>
     </BrowserRouter>
   )
