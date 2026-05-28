@@ -118,22 +118,22 @@ export default function Nav() {
                     <li>
                         <button
                             className={`${
-                                activeSection === "work" ? "text-[#009b5f]" : "text-gray-400"
+                                activeSection === "internship" ? "text-[#009b5f]" : "text-gray-400"
                             } hover:text-gray-300 cursor-pointer`}
-                            onClick={() => scrollToSection("work")}
+                            onClick={() => scrollToSection("internship")}
                         >
-                            Projects
+                            Internship
                         </button>
                     </li>
 
                     <li>
                         <button
                             className={`${
-                                activeSection === "internship" ? "text-[#009b5f]" : "text-gray-400"
+                                activeSection === "work" ? "text-[#009b5f]" : "text-gray-400"
                             } hover:text-gray-300 cursor-pointer`}
-                            onClick={() => scrollToSection("internship")}
+                            onClick={() => scrollToSection("work")}
                         >
-                            Internship
+                            Projects
                         </button>
                     </li>
 
@@ -178,6 +178,22 @@ export default function Nav() {
                                 >
                                     About
                                 </button>
+                            </li> 
+                            
+                            <li>
+                                <button
+                                    className={`${
+                                        activeSection === "internship"
+                                            ? "text-[#009b5f]"
+                                            : "text-gray-400"
+                                    } hover:text-gray-300`}
+                                    onClick={() => {
+                                        scrollToSection("internship");
+                                        setToggle(false);
+                                    }}
+                                >
+                                    Internship
+                                </button>
                             </li>
 
                             <li>
@@ -193,22 +209,6 @@ export default function Nav() {
                                     }}
                                 >
                                     Projects
-                                </button>
-                            </li>
-
-                            <li>
-                                <button
-                                    className={`${
-                                        activeSection === "internship"
-                                            ? "text-[#009b5f]"
-                                            : "text-gray-400"
-                                    } hover:text-gray-300`}
-                                    onClick={() => {
-                                        scrollToSection("internship");
-                                        setToggle(false);
-                                    }}
-                                >
-                                    Internship
                                 </button>
                             </li>
 

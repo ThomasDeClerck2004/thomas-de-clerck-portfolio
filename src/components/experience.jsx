@@ -24,7 +24,7 @@ export default function Experience() {
 
     return (
         <section ref={sectionRef}>
-            <div className="container mx-auto px-4 lg:px-10 2xl:px-20 pt-16 2xl:pt-24">
+            <div className="container mx-auto px-4 lg:px-10 2xl:px-20 py-16 2xl:py-24">
                 <motion.div
                     initial={{ y: 100, opacity: 0 }}
                     animate={isInView ? { y: 0, opacity: 1 } : {}}

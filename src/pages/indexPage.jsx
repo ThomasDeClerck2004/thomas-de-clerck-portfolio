@@ -18,8 +18,8 @@ export default function IndexPage() {
                 <Hobbies />
                 <Skills />
                 <Experience />
-                <Work />
-                <Internship />                    
+                <Internship />
+                <Work />                    
             </Suspense>
 
             <Contact /> 
