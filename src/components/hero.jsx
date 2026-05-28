@@ -301,7 +301,7 @@ export default function Hero() {
                     animate={isInView ? { y: 0, opacity: 1 } : {}}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                 >
-                    I build practical, clean web projects and enjoy turning ideas into working software.
+                    This portfolio brings together my internship and projects as evidence of my growth, technical skills, and readiness to complete my bachelor’s degree.
                 </motion.p>
 
                 <motion.div

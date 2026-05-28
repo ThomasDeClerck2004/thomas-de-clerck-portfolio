@@ -47,8 +47,8 @@ export default function Internship() {
                             BACHELOR INTERNSHIP
                         </p>
 
-                        <h3 className="text-white font-bold text-3xl lg:text-5xl 2xl:text-6xl sm:text-left text-center">
-                            Internship.
+                        <h3 className="text-white font-bold text-3xl lg:text-4xl 2xl:text-5xl sm:text-left text-center leading-tight">
+                            Internal Knowledge-Sharing Platform.
                         </h3>
                     </div>
 
@@ -77,7 +77,7 @@ export default function Internship() {
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
                         variants={fadeUp}
-                        transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+                        transition={{ duration: 0.7, delay: 0.18, ease: "easeOut" }}
                         className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-6 sm:p-8"
                     >
                         <h4 className="text-white text-2xl lg:text-3xl font-bold mb-4">
@@ -89,7 +89,11 @@ export default function Internship() {
                         </p>
 
                         <p className="text-gray-300 text-base lg:text-lg leading-relaxed mt-5">
-                            The assignment combined analysis, technical research, planning, development, testing, documentation, and reflection. Throughout the project, I contributed to both the functional and technical realisation of the platform, while also documenting the process in the required bachelor portfolio documents.
+                            Throughout the assignment, I was involved in analysis, technical research, planning, development, testing, documentation, and reflection. I contributed to both the functional and technical realisation of the platform, using tools and technologies such as Jira, Bitbucket, Figma, Angular, Java Spring Boot, MySQL, Azure Entra ID, and AWS. At the same time, I documented the process in the bachelor portfolio documents.
+                        </p>
+
+                        <p className="text-gray-300 text-base lg:text-lg leading-relaxed mt-5">
+                            This experience allowed me to strengthen both my technical skills and my ability to work in a structured, professional development process.
                         </p>
                     </motion.article>
 
@@ -97,7 +101,7 @@ export default function Internship() {
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
                         variants={fadeUp}
-                        transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+                        transition={{ duration: 0.7, delay: 0.18, ease: "easeOut" }}
                         className="bg-gradient-to-br from-[#031e14] to-[#009b5f] border border-[#1d5f48] rounded-2xl p-6 sm:p-8"
                     >
                         <h4 className="text-white text-2xl lg:text-3xl font-bold mb-5">
@@ -129,35 +133,11 @@ export default function Internship() {
                     </motion.article>
                 </div>
 
-                <motion.article
-                    initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
-                    variants={fadeUp}
-                    transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
-                    className="mt-6 bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-6 sm:p-8"
-                >
-                    <h4 className="text-white text-2xl lg:text-3xl font-bold mb-4">
-                        Internship Assignment
-                    </h4>
-
-                    <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                        The internship assignment started from a real need within Axxes: knowledge was available in the organisation, but it was spread across different tools, channels, and people. Together with the team, I helped analyse this problem and translated it into a concrete software solution.
-                    </p>
-
-                    <p className="text-gray-300 text-base lg:text-lg leading-relaxed mt-5">
-                        My work included analysing requirements, contributing to the data model and technical architecture, developing several front-end and back-end features, and improving the maintainability of the application. I also worked with tools such as Jira, Bitbucket, Figma, Angular, Java Spring Boot, MySQL, Azure Entra ID, and AWS.
-                    </p>
-
-                    <p className="text-gray-300 text-base lg:text-lg leading-relaxed mt-5">
-                        Besides the technical realisation, I documented the project in a project plan, a realisation document, and a reflection document. These documents explain the preparation, technical choices, implementation process, and my personal growth during the internship.
-                    </p>
-                </motion.article>
-
                 <motion.div
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
                     variants={fadeUp}
-                    transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
+                    transition={{ duration: 0.7, delay: 0.18, ease: "easeOut" }}
                     className="mt-10 grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] gap-8 lg:gap-10 items-center"
                 >
                     <div className="w-full overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#111] shadow-lg shadow-black/30">
@@ -195,7 +175,8 @@ export default function Internship() {
                                 <a
                                     key={document.title}
                                     href={document.file}
-                                    download
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="group flex items-center gap-4 rounded-xl border border-[#2a2a2a] bg-[#1a1a1a] px-4 py-4 sm:px-5 sm:py-5 hover:border-[#009b5f] transition duration-300"
                                 >
                                     <svg

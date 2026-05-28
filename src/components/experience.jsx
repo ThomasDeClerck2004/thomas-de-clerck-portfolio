@@ -52,12 +52,12 @@ export default function Experience() {
                             {
                                 date: "Feb. 2026 - May. 2026",
                                 title: "Internship - Axxes IT Consultancy",
-                                description: "Completed my bachelor internship at Axxes IT Consultancy as part of my bachelor degree.",
+                                description: "Completed my internship at Axxes IT Consultancy as part of my bachelor degree.",
                             },
                             {
                                 date: "Sep. 2023",
                                 title: "Driver’s License Obtained - Category B",
-                                description: "Successfully earned driver’s license, enabling independent travel for work and study.",
+                                description: "Successfully earned driver’s license, enabling independent travel for work and school.",
                             },
                             {
                                 date: "Mar. 2023 - Apr. 2023",

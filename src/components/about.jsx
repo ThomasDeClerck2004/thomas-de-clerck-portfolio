@@ -60,11 +60,12 @@ export default function About() {
                         <h2 className="text-gray-300 font-bold text-3xl lg:text-4xl sm:text-left text-center">
                             Hello, I'm <span className="text-[#009b5f]">Thomas</span>
                         </h2>
-                        <p className="text-gray-300 font-bold text-lg lg:text-xl 2xl:text-2xl pt-4 sm:text-left text-center">
-                            During my studies at Thomas More, I worked on various team-based web development projects where I gained practical experience in building web applications, solving technical challenges, and collaborating with others. These projects helped me further develop my technical skills, communication, planning, and ability to work effectively in a team.
-                            <br />
-                            <br />
-                            As I graduate with my bachelor's degree, I am looking for a stable job that matches my interests and skills within web development.
+                        <p className="text-gray-300 font-bold text-md lg:text-lg 2xl:text-xl pt-4 sm:text-left text-center">
+                            During my studies at Thomas More, I worked on various team-based web development projects where I gained practical experience in building web applications, solving technical challenges, and collaborating with others. These projects helped me develop both hard skills, such as front-end and back-end development, debugging, and working with modern tools, as well as soft skills such as communication, planning, teamwork, adaptability, and giving and receiving feedback.                            
+                        </p>
+
+                        <p className="text-gray-300 font-bold text-md lg:text-lg 2xl:text-xl pt-4 sm:text-left text-center">
+                            As I am close to graduating with my bachelor’s degree, I am looking for a stable job that matches my interests and skills within web development, where I can contribute to meaningful web projects and continue growing as a developer.
                         </p>
 
                         <div className='flex flex-col mt-4 text-white'>

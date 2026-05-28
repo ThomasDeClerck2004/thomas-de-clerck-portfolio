@@ -28,7 +28,7 @@ export default function Nav() {
         const handleScroll = () => {
             setScrolled(window.scrollY > 10);
 
-            const sections = ["hero", "about", "work", "internship", "contact"];
+            const sections = ["hero", "about", "internship", "work", "contact"];
             const offset = getNavOffset();
             let currentSection = "hero";
 
