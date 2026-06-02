@@ -41,7 +41,7 @@ export default function Work() {
                     projects={[
                         {
                             name: "FilmVault",
-                            imageUrl: "/assets/FilmVault.mp4",
+                            imageUrl: "/assets/thumbnails/filmvault.jpg",
                             videoUrl: "/assets/FilmVault.mp4",
                             link: "https://filmvault.filmvault.be/",
                             description: "A website to track movies and series you've watched or want to watch. Features include watchlists, trailers, and downloads.",
@@ -60,7 +60,7 @@ export default function Work() {
                         },
                         {
                             name: "Donkey Kong",
-                            imageUrl: "/assets/Donkeykong.mp4",
+                            imageUrl: "/assets/thumbnails/donkeykong.jpg",
                             videoUrl: "/assets/Donkeykong.mp4",
                             link: "https://github.com/Thomas997/Donkey-Kong",
                             description: "A recreation of the classic Donkey Kong game using Windows Forms and C#, made as our high school final project.",
@@ -78,7 +78,7 @@ export default function Work() {
                         },
                         {
                             name: "Knowledge Sharing Platform",
-                            imageUrl: "/assets/Kennisdelingsplatform.mp4",
+                            imageUrl: "/assets/thumbnails/kennisdelingsplatform.jpg",
                             videoUrl: "/assets/Kennisdelingsplatform.mp4",
                             link: "/assets/internship-realization-document.pdf",
                             description: "An internal knowledge-sharing platform built for Axxes during my internship, focused on centralizing and managing company knowledge.",
@@ -96,7 +96,7 @@ export default function Work() {
                         },
                         {
                             name: "Salesforce Business Case",
-                            imageUrl: "/assets/SalesForce.mp4",
+                            imageUrl: "/assets/thumbnails/salesforce.jpg",
                             videoUrl: "/assets/SalesForce.mp4",
                             link: "https://www.linkedin.com/posts/thomas-de-clerck-b9162b2a2_thomasmore-itfactory-deloittedigital-ugcPost-7403019827679748096-EPtE/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEkQWt0BGbrMGjCZIGxx3ZZTTmX_Qi5CQeM",
                             description: "A full Salesforce platform built as part of a Deloitte-led business case, where we designed and implemented a solution for a simulated company.",
@@ -117,7 +117,7 @@ export default function Work() {
                         },
                         {
                             name: "Microsoft 365 Project",
-                            imageUrl: "/assets/Microsoft.mp4",
+                            imageUrl: "/assets/thumbnails/microsoft.jpg",
                             videoUrl: "/assets/Microsoft.mp4",
                             link: "https://youtu.be/ZPyLV5aCMYE",
                             description: "A Microsoft 365 and Power Platform proof of concept built for IOK Waste Management, focused on digitalising the paper-based ROS registration process.",
@@ -153,7 +153,7 @@ export default function Work() {
                         },
                         {
                             name: "Project Skil-2 | De Duffalos",
-                            imageUrl: "/assets/Duffalo.mp4",
+                            imageUrl: "/assets/thumbnails/duffalo.jpg",
                             videoUrl: "/assets/Duffalo.mp4",
                             link: "https://de.duffalos.be/",
                             description: "Developed a website for football club De Duffalos. Worked in a team of six using Scrum throughout the entire project lifecycle.",
@@ -178,7 +178,7 @@ export default function Work() {
                         },
                         {
                             name: "Over21",
-                            imageUrl: "/assets/Over21.mp4",
+                            imageUrl: "/assets/thumbnails/over21.jpg",
                             videoUrl: "/assets/Over21.mp4",
                             link: "/assets/Over21 Voorstel.pdf",
                             description: "Created an AI-powered blackjack chatbot application called Over21 in a team project, focusing on chatbot interaction, API integration, and adaptive cards.",
@@ -198,7 +198,7 @@ export default function Work() {
                         },
                         {
                             name: "Vinylla",
-                            imageUrl: "/assets/Vinylla.mp4",
+                            imageUrl: "/assets/thumbnails/vinylla.jpg",
                             videoUrl: "/assets/Vinylla.mp4",
                             link: "/assets/Flutter + Unity Vuforia AR Project.pdf",
                             description: "Created a Spotify/music-themed mobile application called Vinylla in a group project, combining app development with augmented reality features.",
