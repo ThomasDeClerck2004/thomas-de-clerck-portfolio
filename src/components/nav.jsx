@@ -111,7 +111,7 @@ export default function Nav() {
                             } hover:text-gray-300 cursor-pointer`}
                             onClick={() => scrollToSection("about")}
                         >
-                            About
+                            About Me
                         </button>
                     </li>
                     
@@ -176,7 +176,7 @@ export default function Nav() {
                                         setToggle(false);
                                     }}
                                 >
-                                    About
+                                    About Me
                                 </button>
                             </li> 
                             
