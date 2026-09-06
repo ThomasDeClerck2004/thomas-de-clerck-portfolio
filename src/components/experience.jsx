@@ -45,9 +45,14 @@ export default function Experience() {
                         {/* Timeline Items */}
                         {[
                             {
-                                date: "Sep. 2023 - Present",
+                                date: "Aug. 2026 - Present",
+                                title: "Independent Game Development",
+                                description: "Developing personal game projects in Unity using C#, while exploring game development and expanding my programming skills."
+                            },
+                            {
+                                date: "Sep. 2023 -  Jun. 2026",
                                 title: "Bachelor of Applied Computer Science - Thomas More, Geel",
-                                description: "Currently studying applied computer science with a focus on software development, databases, networking, and modern IT tools.",
+                                description: "Graduated with a bachelor’s degree in applied computer science, with a focus on software development, databases, networking, and modern IT tools.",
                             },
                             {
                                 date: "Feb. 2026 - May. 2026",
