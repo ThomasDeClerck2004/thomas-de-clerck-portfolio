@@ -46,8 +46,8 @@ export default function Experience() {
                         {[
                             {
                                 date: "Aug. 2026 - Present",
-                                title: "Independent Game Development",
-                                description: "Developing personal game projects in Unity using C#, while exploring game development and expanding my programming skills."
+                                title: "IT Career Exploration & Personal Projects",
+                                description: "Exploring different entry-level opportunities within IT while working on personal projects to maintain and expand my technical skills."
                             },
                             {
                                 date: "Sep. 2023 -  Jun. 2026",
